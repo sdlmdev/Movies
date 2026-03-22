@@ -1,0 +1,13 @@
+.btn {
+	position: fixed;
+	z-index: 1000;
+	top: 90%;
+	right: 5%;
+	padding: 0;
+	max-width: min-content;
+	opacity: 0;
+
+	&.visible {
+		opacity: 1;
+	}
+}

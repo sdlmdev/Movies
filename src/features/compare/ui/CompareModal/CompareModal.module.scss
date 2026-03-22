@@ -1,0 +1,86 @@
+.body {
+	display: flex;
+	flex-direction: column;
+	padding: 0 16px 16px;
+}
+
+.posters {
+	display: flex;
+	justify-content: center;
+	padding: 16px 0 12px;
+	gap: 16px;
+}
+
+.postersPair {
+	justify-content: stretch;
+}
+
+.posterSlot {
+	display: flex;
+	position: relative;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+	max-width: 200px;
+	text-align: center;
+}
+
+.posterSlotSingle {
+	flex: 0 1 auto;
+}
+
+.removeBtn {
+	position: absolute;
+	z-index: 1;
+	inset-block-start: -8px;
+	inset-inline-end: 0;
+}
+
+.posterImage {
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+}
+
+.posterTitle {
+	display: -webkit-box;
+	overflow: hidden;
+	text-align: center;
+	max-inline-size: 100%;
+	margin-block-start: 8px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.separator {
+	margin-block: 0;
+}
+
+.table {
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: minmax(100px, 1fr) 1.5fr;
+	align-items: center;
+	gap: 12px;
+	padding-block: 12px;
+	border-block-end: 1px solid var(--vkui--color_separator_primary);
+}
+
+.rowPair {
+	grid-template-columns: minmax(100px, 1fr) 1.5fr 1.5fr;
+}
+
+.row:last-child {
+	border-block-end: none;
+}
+
+.cellLabel {
+	color: var(--vkui--color_text_secondary);
+}
+
+.cellValue {
+	word-break: break-word;
+}

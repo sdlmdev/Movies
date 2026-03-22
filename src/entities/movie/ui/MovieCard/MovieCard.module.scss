@@ -1,0 +1,9 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	max-width: min-content;
+	cursor: pointer;
+	gap: 8px;
+
+	@include hoverable;
+}

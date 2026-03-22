@@ -1,0 +1,53 @@
+@mixin flex($direction: row, $align: normal, $justify: flex-start, $gap: 0) {
+	display: flex;
+	flex-direction: $direction;
+	align-items: $align;
+	justify-content: $justify;
+
+	@if $gap != 0 {
+		gap: $gap;
+	}
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin disabled {
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+@mixin element-position($top: 0, $right: 0, $bottom: 0, $left: 0, $position: absolute) {
+	position: $position;
+	inset: $top $right $bottom $left;
+}
+
+@mixin desktop {
+	@media (width >= 1024px) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (width >= 768px) and (width <= 1023px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (width <= 767px) {
+		@content;
+	}
+}
+
+@mixin hoverable {
+	transition: opacity 0.2s ease;
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
