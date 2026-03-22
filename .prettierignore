@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+coverage
+.vite
+.idea
+.vscode
+.husky
+playwright-report
+test-results
+package-lock.json
+public
+sw.js
+*.tsbuildinfo
