@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router';
-import { Group, Header, Placeholder } from '@vkontakte/vkui';
+import { Button, Group, Header, Placeholder } from '@vkontakte/vkui';
 import { MovieVirtualGrid } from '@entities/movie';
 import { useMoviesList } from '@entities/movie/api/useMoviesList';
 import { getRouteMovie } from '@shared/constants/router';
@@ -45,11 +45,14 @@ const MoviesListPage = () => {
 	if (isError) {
 		return (
 			<Group header={<Header>{t.common.movies}</Header>}>
-				<Placeholder title={t.common.error}>
-					<button type="button" onClick={resetFilters}>
-						{t.filters.reset}
-					</button>
-				</Placeholder>
+				<Placeholder
+					title={t.common.error}
+					action={
+						<Button size="m" onClick={resetFilters}>
+							{t.filters.reset}
+						</Button>
+					}
+				/>
 			</Group>
 		);
 	}

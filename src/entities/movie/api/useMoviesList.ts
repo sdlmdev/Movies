@@ -22,8 +22,9 @@ export const useMoviesList = (
 			enabled: options.enabled,
 		});
 
-	const movies = data?.pages.flatMap((page) => page.docs) ?? [];
-	const total = data?.pages[0]?.total ?? 0;
+	const pages = Array.isArray(data?.pages) ? data.pages : [];
+	const movies = pages.flatMap((page) => (Array.isArray(page.docs) ? page.docs : []));
+	const total = pages[0]?.total ?? 0;
 
 	return {
 		movies,

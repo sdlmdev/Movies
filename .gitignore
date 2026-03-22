@@ -30,8 +30,6 @@ coverage/
 playwright-report/
 test-results/
 
-# PWA
-sw.js
 
 # Vite
 .vite/

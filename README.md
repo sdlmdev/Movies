@@ -31,6 +31,6 @@
 
 ## Установка и запуск проекта
 
-- Клонировать репозиторий: `git clone https://github.com/sdlmdev/movies`
+- Клонировать репозиторий: `git clone https://github.com/sdlmdev/Movies`
 - Установить зависимости: `npm install`
 - Запустить проект: `npm run start` или `npm run dev`

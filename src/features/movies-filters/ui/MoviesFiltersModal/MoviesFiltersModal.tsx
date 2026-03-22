@@ -139,7 +139,7 @@ export const MoviesFiltersModal = ({
 	const selectedAgeRating = ageRatingOptions.filter((opt) => localAgeRating.includes(opt.value));
 
 	return (
-		<ModalPage open={isOpen} onClose={onClose} settlingHeight={90}>
+		<ModalPage open={isOpen} onClose={onClose} settlingHeight={80} dynamicContentHeight>
 			<ModalPageHeader
 				after={
 					<Button

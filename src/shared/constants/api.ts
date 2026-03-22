@@ -1,4 +1,4 @@
-export const API_BASE_URL = import.meta.env.VITE_KINOPOISK_BASE_URL;
+export const API_BASE_URL = 'https://api.poiskkino.dev';
 export const API_KEY = import.meta.env.VITE_KINOPOISK_API_KEY;
 
 export const API_ENDPOINTS = {

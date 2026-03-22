@@ -16,11 +16,12 @@ export const useFilterOptions = () => {
 		staleTime: Infinity,
 	});
 
-	const genres = (data?.genresData ?? [])
-		.filter((g) => g.name)
-		.map((g) => ({ id: g.name, label: g.name }));
+	const genresDataArray = Array.isArray(data?.genresData) ? data.genresData : [];
+	const countriesDataArray = Array.isArray(data?.countriesData) ? data.countriesData : [];
 
-	const countries = (data?.countriesData ?? [])
+	const genres = genresDataArray.filter((g) => g.name).map((g) => ({ id: g.name, label: g.name }));
+
+	const countries = countriesDataArray
 		.filter((c) => c.name)
 		.map((c) => ({ id: c.name, label: c.name }));
 

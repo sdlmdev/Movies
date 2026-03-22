@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router';
 import { Icon56ErrorOutline } from '@vkontakte/icons';
 import { Button, Placeholder } from '@vkontakte/vkui';
+import { getRouteMain } from '@shared/constants/router';
 import { useDictionary } from '@shared/hooks';
 
 interface PageErrorProps {
@@ -8,6 +10,7 @@ interface PageErrorProps {
 
 export const PageError = ({ onReset }: PageErrorProps) => {
 	const t = useDictionary();
+	const navigate = useNavigate();
 
 	return (
 		<Placeholder
@@ -19,7 +22,7 @@ export const PageError = ({ onReset }: PageErrorProps) => {
 						{t.common.retry}
 					</Button>
 				) : (
-					<Button size="s" href="/">
+					<Button size="s" onClick={async () => navigate(getRouteMain())}>
 						{t.common.toMain}
 					</Button>
 				)
