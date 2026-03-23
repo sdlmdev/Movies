@@ -24,6 +24,7 @@
 		"test:coverage": "vitest run --coverage",
 		"test:visual": "playwright test",
 		"test:visual:ui": "playwright test --ui",
+		"test:all": "npm run test && npm run build && npm run test:visual",
 		"prepare": "husky",
 		"predeploy": "tsc -b && npx cross-env VITE_APP_GH_PAGES=true vite build",
 		"deploy": "gh-pages -d dist"

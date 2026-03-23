@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const IS_CI = !!process.env.CI;
-const BASE_URL = 'http://localhost:5173';
+const BASE_URL = 'http://localhost:4173';
 const CI_RETRIES = 2;
 const CI_WORKERS = 1;
 
@@ -25,8 +25,8 @@ export default defineConfig({
 		},
 	],
 	webServer: {
-		command: 'npm run dev',
-		url: BASE_URL,
+		command: 'npm run preview',
+		url: 'http://localhost:4173',
 		reuseExistingServer: !IS_CI,
 	},
 });

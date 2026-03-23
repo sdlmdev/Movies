@@ -1,7 +1,7 @@
 import { MemoryRouter } from 'react-router';
 import { render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { Logo } from './Logo';
+import { Logo } from '../Logo';
 
 vi.mock('@shared/hooks', () => ({
 	useDictionary: () => ({ common: { movies: 'Фильмы' } }),

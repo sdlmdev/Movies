@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NavigationButton > matches snapshot when active 1`] = `
+<button
+  class="vkuiInternalTappable vkuiIconButton__host vkuiIconButton__sizeYNone vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiTappable__activatedBackground vkuiRootComponent__host"
+  type="button"
+>
+  home
+  <span
+    aria-hidden="true"
+    class="vkuiTappable__stateLayer vkuiTappable__ripple"
+  />
+</button>
+`;
+
+exports[`NavigationButton > matches snapshot when inactive 1`] = `
+<button
+  class="vkuiInternalTappable vkuiIconButton__host vkuiIconButton__sizeYNone vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+  type="button"
+>
+  home
+  <span
+    aria-hidden="true"
+    class="vkuiTappable__stateLayer vkuiTappable__ripple"
+  />
+</button>
+`;

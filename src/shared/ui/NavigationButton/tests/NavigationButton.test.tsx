@@ -1,7 +1,7 @@
 import { MemoryRouter } from 'react-router';
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { NavigationButton } from './NavigationButton';
+import { NavigationButton } from '../NavigationButton';
 
 const ICON_LABEL = 'home';
 const TARGET_PATH = '/';
