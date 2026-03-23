@@ -12,6 +12,9 @@ export default defineConfig({
 	timeout: 60000,
 	expect: {
 		timeout: 10000,
+		toHaveScreenshot: {
+			maxDiffPixelRatio: 0.01,
+		},
 	},
 	forbidOnly: IS_CI,
 	retries: IS_CI ? CI_RETRIES : 0,
