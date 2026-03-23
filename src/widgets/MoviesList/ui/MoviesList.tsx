@@ -77,7 +77,7 @@ export const MoviesList = ({
 		<div className={styles.loadingMore}>
 			<MoviesListSkeleton />
 		</div>
-	) : movies.length > 0 ? (
+	) : hasNextPage ? null : movies.length > 0 ? (
 		<div className={styles.endOfList}>{t.movies.endOfList}</div>
 	) : null;
 
@@ -88,7 +88,7 @@ export const MoviesList = ({
 			header={
 				<Header>
 					{title}
-					{displayTotal && (
+					{displayTotal !== undefined && displayTotal > 0 && (
 						<span className={styles.total}>
 							{UI_CHARS.MIDDLE_DOT}
 							{displayTotal}
