@@ -11,13 +11,17 @@ import {
 	useAdaptivityWithJSMediaQueries,
 } from '@vkontakte/vkui';
 import cn from 'classnames';
-import { useCompare } from '@app/providers/CompareProvider/CompareContext';
 import { MoviePoster } from '@entities/movie';
 import { formatDuration, formatYear } from '@entities/movie/lib/formatters';
 import { getPrimaryRating } from '@entities/movie/lib/getRatings';
 import type { Movie } from '@entities/movie/model/types';
 import { UI_CHARS } from '@shared/constants/ui';
 import { useDictionary } from '@shared/hooks';
+import {
+	useCompareActions,
+	useCompareData,
+	useCompareModal,
+} from '../CompareProvider/CompareContext';
 import styles from './CompareModal.module.scss';
 
 interface ComparePosterBlockProps {
@@ -52,8 +56,9 @@ export const CompareModal = () => {
 	const t = useDictionary();
 	const { isDesktop } = useAdaptivityWithJSMediaQueries();
 
-	const { compareList, clearCompare, removeFromCompare, isCompareOpen, closeCompare } =
-		useCompare();
+	const { compareList } = useCompareData();
+	const { removeFromCompare, clearCompare } = useCompareActions();
+	const { isCompareOpen, closeCompare } = useCompareModal();
 
 	const [movieA, movieB] = compareList;
 	const hasPair = Boolean(movieA && movieB);

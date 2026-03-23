@@ -4,8 +4,8 @@ import {
 	Icon20BookmarkSlashOutline,
 } from '@vkontakte/icons';
 import { Button, ButtonGroup } from '@vkontakte/vkui';
-import { useCompare } from '@app/providers/CompareProvider/CompareContext';
-import { useFavorites } from '@app/providers/FavoritesProvider/FavoritesContext';
+import { useFavoritesActions, useFavoritesData } from '@features/add-to-favorites';
+import { useCompareActions, useCompareData } from '@features/compare';
 import type { Movie } from '@entities/movie/model/types';
 import { useDictionary } from '@shared/hooks';
 
@@ -15,8 +15,10 @@ interface MovieDetailActionsProps {
 
 export const MovieDetailActions = ({ movie }: MovieDetailActionsProps) => {
 	const t = useDictionary();
-	const { isFavorite, requestAddToFavorites, removeFromFavorites } = useFavorites();
-	const { isInCompare, addToCompare, removeFromCompare } = useCompare();
+	const { isFavorite } = useFavoritesData();
+	const { requestAddToFavorites, removeFromFavorites } = useFavoritesActions();
+	const { isInCompare } = useCompareData();
+	const { addToCompare, removeFromCompare } = useCompareActions();
 
 	const inFavorites = isFavorite(movie.id);
 	const inCompare = isInCompare(movie.id);

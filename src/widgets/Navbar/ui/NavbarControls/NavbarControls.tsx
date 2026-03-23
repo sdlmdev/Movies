@@ -1,7 +1,7 @@
 import { Icon20Arrows2LeftRightOutward, Icon28FavoriteOutline } from '@vkontakte/icons';
 import { ButtonGroup, Flex, IconButton } from '@vkontakte/vkui';
 import classNames from 'classnames';
-import { useCompare } from '@app/providers/CompareProvider/CompareContext';
+import { useCompareData, useCompareModal } from '@features/compare';
 import { LangSwitcher } from '@features/lang-switcher';
 import { ThemeSwitcher } from '@features/theme-switcher';
 import { getRouteFavorites } from '@shared/constants/router';
@@ -17,7 +17,8 @@ interface NavbarControlsProps {
 
 export const NavbarControls = ({ isMobile, onFiltersClick }: NavbarControlsProps) => {
 	const t = useDictionary();
-	const { compareList, openCompare } = useCompare();
+	const { compareList } = useCompareData();
+	const { openCompare } = useCompareModal();
 
 	return (
 		<Flex direction={isMobile ? 'column' : 'row'} align="center" gap="s">

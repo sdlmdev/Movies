@@ -5,22 +5,23 @@ import {
 	Icon20BookmarkSlashOutline,
 } from '@vkontakte/icons';
 import { Button, ButtonGroup } from '@vkontakte/vkui';
-import { useCompare } from '@app/providers/CompareProvider/CompareContext';
-import { useFavorites } from '@app/providers/FavoritesProvider/FavoritesContext';
+import classNames from 'classnames';
+import { useFavoritesActions, useFavoritesData } from '@features/add-to-favorites';
+import { useCompareActions, useCompareData } from '@features/compare';
 import type { Movie } from '@entities/movie/model/types';
 import { useDictionary } from '@shared/hooks';
+import styles from './MovieCardActions.module.scss';
 
 interface MovieCardActionsProps {
 	movie: Movie;
 }
 
-const activeColor = 'var(--vkui--color_accent_red)';
-const inactiveColor = 'white';
-
 export const MovieCardActions = ({ movie }: MovieCardActionsProps) => {
 	const t = useDictionary();
-	const { isFavorite, requestAddToFavorites, removeFromFavorites } = useFavorites();
-	const { isInCompare, addToCompare, removeFromCompare } = useCompare();
+	const { isFavorite } = useFavoritesData();
+	const { requestAddToFavorites, removeFromFavorites } = useFavoritesActions();
+	const { isInCompare } = useCompareData();
+	const { addToCompare, removeFromCompare } = useCompareActions();
 
 	const favorite = isFavorite(movie.id);
 	const inCompare = isInCompare(movie.id);
@@ -53,9 +54,9 @@ export const MovieCardActions = ({ movie }: MovieCardActionsProps) => {
 				onClick={handleFavoriteClick}
 				after={
 					favorite ? (
-						<Icon20BookmarkSlashOutline fill={activeColor} />
+						<Icon20BookmarkSlashOutline className={styles.active} />
 					) : (
-						<Icon20BookmarkOutline fill={inactiveColor} />
+						<Icon20BookmarkOutline className={styles.inactive} />
 					)
 				}
 			></Button>
@@ -63,7 +64,11 @@ export const MovieCardActions = ({ movie }: MovieCardActionsProps) => {
 				mode="tertiary"
 				label={inCompare ? t.movie.removeFromCompare : t.common.compare}
 				onClick={handleCompareClick}
-				after={<Icon20Arrows2LeftRightOutward fill={inCompare ? activeColor : inactiveColor} />}
+				after={
+					<Icon20Arrows2LeftRightOutward
+						className={classNames(inCompare ? styles.active : styles.inactive)}
+					/>
+				}
 			></Button>
 		</ButtonGroup>
 	);

@@ -2,10 +2,10 @@ import { Suspense } from 'react';
 import type { ReactElement, ReactNode } from 'react';
 import { ScreenSpinner } from '@vkontakte/vkui';
 import { I18nextProvider } from 'react-i18next';
+import { FavoritesProvider } from '@features/add-to-favorites';
+import { CompareProvider } from '@features/compare';
 import i18nConfig from '@shared/lib/i18n/config';
-import { CompareProvider } from '../CompareProvider';
 import { ErrorBoundary } from '../ErrorBoundary';
-import { FavoritesProvider } from '../FavoritesProvider';
 import { QueryProvider } from '../QueryProvider';
 import { VKUIProvider } from '../VKUIProvider';
 

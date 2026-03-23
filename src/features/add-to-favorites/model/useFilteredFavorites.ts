@@ -1,11 +1,11 @@
-import { useFavorites } from '@app/providers/FavoritesProvider/FavoritesContext';
 import { useMoviesFilters } from '@features/movies-filters';
 import { movieMatchesFilters } from '@entities/movie/lib/filterMovies';
 import { sortMovies } from '@entities/movie/lib/sortMovies';
 import { DEFAULT_RATING_PROVIDER, SORT_ORDERS } from '@shared/constants/api';
+import { useFavoritesData } from '../ui/FavoritesProvider/FavoritesContext';
 
 export const useFilteredFavorites = () => {
-	const { favorites } = useFavorites();
+	const { favorites } = useFavoritesData();
 	const { filters } = useMoviesFilters();
 	const { sortBy, sortOrder } = filters;
 	const ratingProvider = filters.ratingProvider ?? DEFAULT_RATING_PROVIDER;

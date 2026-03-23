@@ -1,8 +1,8 @@
-import { useFavorites } from '@app/providers/FavoritesProvider';
 import { ConfirmModal } from '../ConfirmModal/ConfirmModal';
+import { useFavoritesModal } from '../FavoritesProvider/FavoritesContext';
 
 export const FavoritesConfirmModalContainer = () => {
-	const { isConfirmOpen, pendingMovie, confirmAdd, cancelAdd } = useFavorites();
+	const { confirmAdd, cancelAdd, isConfirmOpen, pendingMovie } = useFavoritesModal();
 
 	return (
 		<ConfirmModal
