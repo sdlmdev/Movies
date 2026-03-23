@@ -12,6 +12,7 @@ export * from './model/types';
 export * from './lib/getRatings';
 export * from './lib/formatters';
 export * from './lib/movieFilterValues';
+export * from './lib/filterMovies';
 export * from './ui/MovieHorizontalList/MovieHorizontalList';
 export * from './ui/PersonHorizontalList/PersonHorizontalList';
 export * from './ui/WatchabilityHorizontalList/WatchabilityHorizontalList';

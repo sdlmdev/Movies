@@ -1,20 +1,15 @@
 import { useSearchParams } from 'react-router';
-import type {
-	MovieFilters,
-	RatingProvider,
-	SortField,
-	SortOrder,
-} from '@entities/movie/model/types';
+import type { MovieFilters, RatingProvider, SortField } from '@entities/movie/model/types';
 import {
-	API_LIMITS,
 	DEFAULT_RATING_PROVIDER,
 	RATING_PROVIDERS,
 	SEARCH_PARAMS,
 	SORT_FIELDS,
+	SORT_ORDERS,
 } from '@shared/constants/api';
 
-const VALID_PROVIDERS: Array<RatingProvider> = [...RATING_PROVIDERS];
-const VALID_SORT_FIELDS: Array<SortField> = Object.values(SORT_FIELDS);
+const VALID_PROVIDERS_SET = new Set<string>([...RATING_PROVIDERS]);
+const VALID_SORT_FIELDS_SET = new Set<string>(Object.values(SORT_FIELDS));
 
 const parseNumber = (value: string | null): number | undefined => {
 	if (!value) {
@@ -26,134 +21,163 @@ const parseNumber = (value: string | null): number | undefined => {
 	return Number.isFinite(n) ? n : undefined;
 };
 
+const isRatingProvider = (value: string): value is RatingProvider => VALID_PROVIDERS_SET.has(value);
+
+const isSortField = (value: string): value is SortField => VALID_SORT_FIELDS_SET.has(value);
+
 const parseProvider = (value: string | null): RatingProvider => {
-	if (value && VALID_PROVIDERS.includes(value as RatingProvider)) {
-		return value as RatingProvider;
+	if (value && isRatingProvider(value)) {
+		return value;
 	}
 
 	return DEFAULT_RATING_PROVIDER;
 };
 
 const parseSortField = (value: string | null): SortField | undefined => {
-	if (value && VALID_SORT_FIELDS.includes(value as SortField)) {
-		return value as SortField;
+	if (value && isSortField(value)) {
+		return value;
 	}
 
 	return undefined;
 };
 
-const parseSortOrder = (value: string | null): SortOrder => {
-	return value === 'asc' ? 'asc' : 'desc';
+type FilterKey = keyof Omit<MovieFilters, 'page' | 'limit'>;
+
+type FilterValue = MovieFilters[FilterKey];
+
+interface FilterConfigItem {
+	param: string;
+	default?: FilterValue;
+	parse: (params: URLSearchParams) => FilterValue;
+}
+
+const FILTER_CONFIG: Record<FilterKey, FilterConfigItem> = {
+	query: {
+		param: SEARCH_PARAMS.QUERY,
+		parse: (p) => p.get(SEARCH_PARAMS.QUERY) || undefined,
+	},
+	genres: {
+		param: SEARCH_PARAMS.GENRES,
+		parse: (p) => p.getAll(SEARCH_PARAMS.GENRES),
+	},
+	countries: {
+		param: SEARCH_PARAMS.COUNTRIES,
+		parse: (p) => p.getAll(SEARCH_PARAMS.COUNTRIES),
+	},
+	isSeries: {
+		param: SEARCH_PARAMS.IS_SERIES,
+		parse: (p) => p.getAll(SEARCH_PARAMS.IS_SERIES),
+	},
+	ageRating: {
+		param: SEARCH_PARAMS.AGE_RATING,
+		parse: (p) => p.getAll(SEARCH_PARAMS.AGE_RATING),
+	},
+	ratingFrom: {
+		param: SEARCH_PARAMS.RATING_FROM,
+		parse: (p) => parseNumber(p.get(SEARCH_PARAMS.RATING_FROM)),
+	},
+	ratingTo: {
+		param: SEARCH_PARAMS.RATING_TO,
+		parse: (p) => parseNumber(p.get(SEARCH_PARAMS.RATING_TO)),
+	},
+	yearFrom: {
+		param: SEARCH_PARAMS.YEAR_FROM,
+		parse: (p) => parseNumber(p.get(SEARCH_PARAMS.YEAR_FROM)),
+	},
+	yearTo: {
+		param: SEARCH_PARAMS.YEAR_TO,
+		parse: (p) => parseNumber(p.get(SEARCH_PARAMS.YEAR_TO)),
+	},
+	ratingProvider: {
+		param: SEARCH_PARAMS.RATING_PROVIDER,
+		default: DEFAULT_RATING_PROVIDER,
+		parse: (p) => parseProvider(p.get(SEARCH_PARAMS.RATING_PROVIDER)),
+	},
+	sortBy: {
+		param: SEARCH_PARAMS.SORT_BY,
+		parse: (p) => parseSortField(p.get(SEARCH_PARAMS.SORT_BY)),
+	},
+	sortOrder: {
+		param: SEARCH_PARAMS.SORT_ORDER,
+		default: SORT_ORDERS.DESC,
+		parse: (p) => {
+			const val = p.get(SEARCH_PARAMS.SORT_ORDER);
+
+			return val === SORT_ORDERS.ASC ? SORT_ORDERS.ASC : SORT_ORDERS.DESC;
+		},
+	},
+};
+
+const FILTER_KEYS = Object.keys(FILTER_CONFIG) as Array<FilterKey>;
+
+const isEmptyValue = (value: unknown): boolean =>
+	value === undefined ||
+	value === null ||
+	value === '' ||
+	(Array.isArray(value) && value.length === 0);
+
+const isDefaultValue = (config: FilterConfigItem, value: unknown): boolean =>
+	config.default !== undefined && value === config.default;
+
+const parseFilters = (searchParams: URLSearchParams): Omit<MovieFilters, 'page' | 'limit'> => {
+	const result: Omit<MovieFilters, 'page' | 'limit'> = {
+		ratingProvider: DEFAULT_RATING_PROVIDER,
+		sortOrder: SORT_ORDERS.DESC,
+	};
+
+	for (const key of FILTER_KEYS) {
+		const config = FILTER_CONFIG[key];
+		const value = config.parse(searchParams);
+
+		if (!isEmptyValue(value) && !isDefaultValue(config, value)) {
+			(result as Record<FilterKey, FilterValue>)[key] = value;
+		}
+	}
+
+	if (!result.sortBy) {
+		result.sortOrder = undefined;
+	}
+
+	return result;
 };
 
 export const useMoviesFilters = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 
-	const query = searchParams.get(SEARCH_PARAMS.QUERY) || undefined;
-	const genres = searchParams.getAll(SEARCH_PARAMS.GENRES);
-	const countries = searchParams.getAll(SEARCH_PARAMS.COUNTRIES);
-	const isSeries = searchParams.getAll(SEARCH_PARAMS.IS_SERIES);
-	const ageRating = searchParams.getAll(SEARCH_PARAMS.AGE_RATING);
+	const filters = parseFilters(searchParams);
 
-	const ratingFrom = parseNumber(searchParams.get(SEARCH_PARAMS.RATING_FROM));
-	const ratingTo = parseNumber(searchParams.get(SEARCH_PARAMS.RATING_TO));
-	const yearFrom = parseNumber(searchParams.get(SEARCH_PARAMS.YEAR_FROM));
-	const yearTo = parseNumber(searchParams.get(SEARCH_PARAMS.YEAR_TO));
-	const ratingProvider = parseProvider(searchParams.get(SEARCH_PARAMS.RATING_PROVIDER));
-	const sortBy = parseSortField(searchParams.get(SEARCH_PARAMS.SORT_BY));
-	const sortOrder = parseSortOrder(searchParams.get(SEARCH_PARAMS.SORT_ORDER));
+	const activeFiltersCount = FILTER_KEYS.reduce((acc, key) => {
+		const value = filters[key];
+		const config = FILTER_CONFIG[key];
 
-	const filters: Omit<MovieFilters, 'page' | 'limit'> = {
-		...(query && { query }),
-		...(genres.length > 0 && { genres }),
-		...(countries.length > 0 && { countries }),
-		...(isSeries.length > 0 && { isSeries }),
-		...(ageRating.length > 0 && { ageRating }),
-		...(ratingFrom !== undefined && { ratingFrom }),
-		...(ratingTo !== undefined && { ratingTo }),
-		...(yearFrom !== undefined && { yearFrom }),
-		...(yearTo !== undefined && { yearTo }),
-		ratingProvider,
-		...(sortBy !== undefined && { sortBy }),
-		...(sortOrder !== 'desc' && { sortOrder }),
-	};
+		if (isEmptyValue(value) || isDefaultValue(config, value)) {
+			return acc;
+		}
 
-	const activeFiltersCount =
-		(query ? 1 : 0) +
-		(genres.length > 0 ? 1 : 0) +
-		(countries.length > 0 ? 1 : 0) +
-		(isSeries.length > 0 ? 1 : 0) +
-		(ageRating.length > 0 ? 1 : 0) +
-		(ratingFrom !== undefined || ratingTo !== undefined ? 1 : 0) +
-		(yearFrom !== undefined || yearTo !== undefined ? 1 : 0) +
-		(ratingProvider !== DEFAULT_RATING_PROVIDER ? 1 : 0) +
-		(sortBy !== undefined ? 1 : 0);
+		return acc + 1;
+	}, 0);
 
 	const setFilters = (newFilters: Omit<MovieFilters, 'page' | 'limit'>) => {
 		setSearchParams(
 			(prev) => {
 				const next = new URLSearchParams(prev);
 
-				if (newFilters.query) {
-					next.set(SEARCH_PARAMS.QUERY, newFilters.query);
-				} else {
-					next.delete(SEARCH_PARAMS.QUERY);
-				}
+				for (const key of FILTER_KEYS) {
+					const value = newFilters[key];
+					const config = FILTER_CONFIG[key];
+					const paramKey = config.param;
 
-				next.delete(SEARCH_PARAMS.GENRES);
-				newFilters.genres?.forEach((g) => next.append(SEARCH_PARAMS.GENRES, g));
+					if (Array.isArray(value)) {
+						next.delete(paramKey);
+						value.forEach((v) => next.append(paramKey, String(v)));
+						continue;
+					}
 
-				next.delete(SEARCH_PARAMS.COUNTRIES);
-				newFilters.countries?.forEach((c) => next.append(SEARCH_PARAMS.COUNTRIES, c));
-
-				next.delete(SEARCH_PARAMS.IS_SERIES);
-				newFilters.isSeries?.forEach((s) => next.append(SEARCH_PARAMS.IS_SERIES, s));
-
-				next.delete(SEARCH_PARAMS.AGE_RATING);
-				newFilters.ageRating?.forEach((r) => next.append(SEARCH_PARAMS.AGE_RATING, r));
-
-				if (newFilters.ratingFrom !== undefined) {
-					next.set(SEARCH_PARAMS.RATING_FROM, String(newFilters.ratingFrom));
-				} else {
-					next.delete(SEARCH_PARAMS.RATING_FROM);
-				}
-
-				if (newFilters.ratingTo !== undefined) {
-					next.set(SEARCH_PARAMS.RATING_TO, String(newFilters.ratingTo));
-				} else {
-					next.delete(SEARCH_PARAMS.RATING_TO);
-				}
-
-				if (newFilters.yearFrom !== undefined) {
-					next.set(SEARCH_PARAMS.YEAR_FROM, String(newFilters.yearFrom));
-				} else {
-					next.delete(SEARCH_PARAMS.YEAR_FROM);
-				}
-
-				if (newFilters.yearTo !== undefined) {
-					next.set(SEARCH_PARAMS.YEAR_TO, String(newFilters.yearTo));
-				} else {
-					next.delete(SEARCH_PARAMS.YEAR_TO);
-				}
-
-				const provider = newFilters.ratingProvider ?? DEFAULT_RATING_PROVIDER;
-
-				if (provider !== DEFAULT_RATING_PROVIDER) {
-					next.set(SEARCH_PARAMS.RATING_PROVIDER, provider);
-				} else {
-					next.delete(SEARCH_PARAMS.RATING_PROVIDER);
-				}
-
-				if (newFilters.sortBy) {
-					next.set(SEARCH_PARAMS.SORT_BY, newFilters.sortBy);
-				} else {
-					next.delete(SEARCH_PARAMS.SORT_BY);
-				}
-
-				if (newFilters.sortOrder && newFilters.sortOrder !== 'desc') {
-					next.set(SEARCH_PARAMS.SORT_ORDER, newFilters.sortOrder);
-				} else {
-					next.delete(SEARCH_PARAMS.SORT_ORDER);
+					if (isEmptyValue(value) || isDefaultValue(config, value)) {
+						next.delete(paramKey);
+					} else {
+						next.set(paramKey, String(value));
+					}
 				}
 
 				return next;
@@ -168,15 +192,6 @@ export const useMoviesFilters = () => {
 
 	return {
 		filters,
-		query,
-		genres,
-		ratingFrom,
-		ratingTo,
-		yearFrom: yearFrom ?? API_LIMITS.MIN_YEAR,
-		yearTo: yearTo ?? new Date().getFullYear(),
-		ratingProvider,
-		sortBy,
-		sortOrder,
 		activeFiltersCount,
 		setFilters,
 		resetFilters,

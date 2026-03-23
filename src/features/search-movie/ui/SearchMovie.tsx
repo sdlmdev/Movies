@@ -20,7 +20,10 @@ export const SearchMovie = () => {
 	const navigate = useNavigate();
 	const { search } = useLocation();
 	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-	const { query: urlQuery } = useMoviesFilters();
+
+	const {
+		filters: { query: urlQuery },
+	} = useMoviesFilters();
 
 	useEffect(() => {
 		setQuery(urlQuery ?? '');

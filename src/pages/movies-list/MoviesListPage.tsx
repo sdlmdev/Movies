@@ -12,7 +12,8 @@ const MoviesListPage = () => {
 	const t = useDictionary();
 	const navigate = useNavigate();
 
-	const { filters, ratingProvider, resetFilters } = useMoviesFilters();
+	const { filters, resetFilters } = useMoviesFilters();
+	const { ratingProvider } = filters;
 
 	const {
 		movies,

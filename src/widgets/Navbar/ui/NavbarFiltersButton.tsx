@@ -3,6 +3,8 @@ import { Icon28SlidersOutline } from '@vkontakte/icons';
 import { IconButton } from '@vkontakte/vkui';
 import classNames from 'classnames';
 import { MoviesFiltersModal } from '@features/movies-filters';
+import { API_LIMITS, DEFAULT_RATING_PROVIDER, SORT_ORDERS } from '@shared/constants/api';
+import { CURRENT_YEAR } from '@shared/constants/common';
 import { getRouteFavorites, getRouteMain } from '@shared/constants/router';
 import { useDictionary } from '@shared/hooks';
 import { useMoviesFilters } from '../../../pages/movies-list/model/useMoviesFilters';
@@ -39,18 +41,8 @@ export const NavbarFiltersModalContainer = ({
 	isOpen: boolean;
 	onClose: VoidFunction;
 }) => {
-	const {
-		filters,
-		ratingFrom,
-		ratingTo,
-		yearFrom,
-		yearTo,
-		ratingProvider,
-		sortBy,
-		sortOrder,
-		setFilters,
-		resetFilters,
-	} = useMoviesFilters();
+	const { filters, setFilters, resetFilters } = useMoviesFilters();
+	const { ratingFrom, ratingTo, yearFrom, yearTo, ratingProvider, sortBy, sortOrder } = filters;
 
 	return (
 		<MoviesFiltersModal
@@ -59,11 +51,11 @@ export const NavbarFiltersModalContainer = ({
 			filters={filters}
 			ratingFrom={ratingFrom ?? 0}
 			ratingTo={ratingTo ?? MAX_RATING}
-			yearFrom={yearFrom}
-			yearTo={yearTo}
-			ratingProvider={ratingProvider}
+			yearFrom={yearFrom ?? API_LIMITS.MIN_YEAR}
+			yearTo={yearTo ?? CURRENT_YEAR}
+			ratingProvider={ratingProvider ?? DEFAULT_RATING_PROVIDER}
 			sortBy={sortBy}
-			sortOrder={sortOrder}
+			sortOrder={sortOrder ?? SORT_ORDERS.DESC}
 			onApply={(newFilters) => {
 				setFilters({ ...newFilters, query: filters.query });
 				onClose();
