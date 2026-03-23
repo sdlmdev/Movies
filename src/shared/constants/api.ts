@@ -30,11 +30,13 @@ export const RATING_PROVIDERS = [
 	'filmCritics',
 	'russianFilmCritics',
 ] as const;
+export const FILTERABLE_RATING_PROVIDERS = ['kp', 'imdb', 'tmdb'] as const;
 export const EXCLUDED_RATING_PROVIDERS = ['await'] as const;
 
 export const QUERY_KEYS = {
 	MOVIES: 'movies',
 	MOVIE_DETAIL: 'movie-detail',
+	MOVIE_SEARCH: 'movie-search',
 	FILTER_OPTIONS: 'filter-options',
 } as const;
 

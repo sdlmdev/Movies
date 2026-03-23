@@ -4,10 +4,8 @@ import {
 	useFilterOptions,
 } from '@entities/movie';
 import type { RatingProvider, SortField, SortOrder } from '@entities/movie';
-import { EXCLUDED_RATING_PROVIDERS, SORT_FIELDS, SORT_ORDERS } from '@shared/constants/api';
+import { FILTERABLE_RATING_PROVIDERS, SORT_FIELDS, SORT_ORDERS } from '@shared/constants/api';
 import { useDictionary } from '@shared/hooks';
-
-const EXCLUDED_PROVIDERS_SET = new Set<string>(EXCLUDED_RATING_PROVIDERS);
 
 export const useFilterFormOptions = () => {
 	const t = useDictionary();
@@ -44,12 +42,10 @@ export const useFilterFormOptions = () => {
 	const genreOptions = availableGenres.map((g) => ({ value: g.id, label: g.label }));
 	const countryOptions = availableCountries.map((c) => ({ value: c.id, label: c.label }));
 
-	const providerOptions = Object.entries(t.ratings)
-		.filter(([key]) => !EXCLUDED_PROVIDERS_SET.has(key))
-		.map(([key, label]) => ({
-			value: key as RatingProvider,
-			label,
-		}));
+	const providerOptions = FILTERABLE_RATING_PROVIDERS.map((key) => ({
+		value: key as RatingProvider,
+		label: t.ratings[key] ?? key,
+	}));
 
 	return {
 		sortFieldOptions,

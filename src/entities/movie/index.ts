@@ -7,6 +7,7 @@ export * from './ui/MoviePoster/MoviePoster';
 export * from './api/movieApi';
 export * from './api/useMovieById';
 export * from './api/useMoviesList';
+export * from './api/useMovieSearch';
 export * from './api/useFilterOptions';
 export * from './model/types';
 export * from './lib/getRatings';

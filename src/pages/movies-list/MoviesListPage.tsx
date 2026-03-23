@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import { Button, Group, Header, Placeholder } from '@vkontakte/vkui';
-import { MovieVirtualGrid } from '@entities/movie';
+import { MovieVirtualGrid, useMovieSearch } from '@entities/movie';
 import { useMoviesList } from '@entities/movie/api/useMoviesList';
 import { getRouteMovie } from '@shared/constants/router';
 import { useDictionary } from '@shared/hooks';
@@ -13,7 +13,10 @@ const MoviesListPage = () => {
 	const navigate = useNavigate();
 
 	const { filters, resetFilters } = useMoviesFilters();
-	const { ratingProvider } = filters;
+	const { query, ratingProvider, ...filterParams } = filters;
+
+	const listResult = useMoviesList(filterParams, { enabled: !query });
+	const searchResult = useMovieSearch(query ?? '', { enabled: Boolean(query) });
 
 	const {
 		movies,
@@ -24,7 +27,7 @@ const MoviesListPage = () => {
 		hasNextPage,
 		fetchNextPage,
 		isError,
-	} = useMoviesList(filters);
+	} = query ? searchResult : listResult;
 
 	const handleEndReached = () => {
 		if (hasNextPage && !isFetchingNextPage) {

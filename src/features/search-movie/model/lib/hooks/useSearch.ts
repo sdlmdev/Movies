@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useMoviesList } from '@entities/movie/api/useMoviesList';
+import { useMovieSearch } from '@entities/movie';
 import { SEARCH_CONFIG } from '@shared/constants/common';
 import { useDebounce } from '@shared/hooks';
 
@@ -8,10 +8,9 @@ export const useSearch = () => {
 	const debouncedQuery = useDebounce(query, SEARCH_CONFIG.DEBOUNCE_DELAY);
 
 	const { movies, isLoading, isFetching, isFetchingNextPage, hasNextPage, fetchNextPage, isError } =
-		useMoviesList(
-			{ query: debouncedQuery },
-			{ enabled: debouncedQuery.length >= SEARCH_CONFIG.MIN_QUERY_LENGTH },
-		);
+		useMovieSearch(debouncedQuery, {
+			enabled: debouncedQuery.length >= SEARCH_CONFIG.MIN_QUERY_LENGTH,
+		});
 
 	const isReady = debouncedQuery.length >= SEARCH_CONFIG.MIN_QUERY_LENGTH;
 

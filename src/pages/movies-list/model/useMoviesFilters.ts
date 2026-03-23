@@ -2,13 +2,13 @@ import { useSearchParams } from 'react-router';
 import type { MovieFilters, RatingProvider, SortField } from '@entities/movie/model/types';
 import {
 	DEFAULT_RATING_PROVIDER,
-	RATING_PROVIDERS,
+	FILTERABLE_RATING_PROVIDERS,
 	SEARCH_PARAMS,
 	SORT_FIELDS,
 	SORT_ORDERS,
 } from '@shared/constants/api';
 
-const VALID_PROVIDERS_SET = new Set<string>([...RATING_PROVIDERS]);
+const VALID_PROVIDERS_SET = new Set<string>([...FILTERABLE_RATING_PROVIDERS]);
 const VALID_SORT_FIELDS_SET = new Set<string>(Object.values(SORT_FIELDS));
 
 const parseNumber = (value: string | null): number | undefined => {
