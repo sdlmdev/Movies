@@ -9,12 +9,14 @@ interface MovieHorizontalListProps {
 	movies: Array<MovieSimilar>;
 	ratingProvider?: RatingProvider;
 	onMovieClick: (movie: Movie) => void;
+	header?: string;
 }
 
 export const MovieHorizontalList = ({
 	movies,
 	ratingProvider,
 	onMovieClick,
+	header,
 }: MovieHorizontalListProps) => {
 	const t = useDictionary();
 
@@ -23,7 +25,7 @@ export const MovieHorizontalList = ({
 	}
 
 	return (
-		<Group header={<Header>{t.movie.similarMovies}</Header>}>
+		<Group header={<Header>{header ?? t.movie.similarMovies}</Header>}>
 			<Box padding="2xl">
 				<Virtuoso
 					className={styles.list}

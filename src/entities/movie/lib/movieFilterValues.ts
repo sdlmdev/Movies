@@ -11,10 +11,21 @@ export const MOVIE_IS_SERIES_FILTER_VALUE = {
 
 export const MOVIE_AGE_RATING_FILTER_VALUES = ['0', '6', '12', '16', '18'] as const;
 
-export const movieMatchesIsSeriesFilter = (filterValue: string, movieIsSeries?: boolean) =>
-	filterValue === String(Boolean(movieIsSeries));
+export const movieMatchesIsSeriesFilter = (filterValue: string, movieIsSeries?: boolean) => {
+	if (movieIsSeries === undefined) {
+		return false;
+	}
+
+	return filterValue === String(movieIsSeries);
+};
 
 export const movieMatchesAgeRatingFilters = (
 	filterValues: Array<string>,
 	movieAgeRating?: number,
-) => filterValues.includes(String(movieAgeRating ?? 0));
+) => {
+	if (movieAgeRating === undefined) {
+		return false;
+	}
+
+	return filterValues.includes(String(movieAgeRating));
+};

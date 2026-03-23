@@ -1,27 +1,13 @@
 import { Suspense } from 'react';
 import { Outlet, ScrollRestoration } from 'react-router';
-import {
-	Footer,
-	Link,
-	Panel,
-	ScreenSpinner,
-	Spacing,
-	SplitCol,
-	SplitLayout,
-	View,
-} from '@vkontakte/vkui';
+import { Panel, ScreenSpinner, Spacing, SplitCol, SplitLayout, View } from '@vkontakte/vkui';
+import { AppFooter } from '@widgets/AppFooter';
 import { Navbar } from '@widgets/Navbar';
-import { ConfirmModal } from '@features/add-to-favorites';
+import { FavoritesConfirmModalContainer } from '@features/add-to-favorites';
 import { CompareModal } from '@features/compare';
-import { KINOPOISK_DEV_URL } from '@shared/constants/api';
-import { useDictionary } from '@shared/hooks';
 import { ScrollToTop } from '@shared/ui';
-import { useFavorites } from '../providers/FavoritesProvider';
 
 export const AppLayout = () => {
-	const { isConfirmOpen, pendingMovie, confirmAdd, cancelAdd } = useFavorites();
-	const t = useDictionary();
-
 	return (
 		<>
 			<ScrollRestoration />
@@ -35,19 +21,9 @@ export const AppLayout = () => {
 								<Outlet />
 							</Suspense>
 
-							<Footer>
-								{t.footer.text}
-								<Link href={KINOPOISK_DEV_URL} target="_blank">
-									{t.footer.api}
-								</Link>
-							</Footer>
+							<AppFooter />
 
-							<ConfirmModal
-								isOpen={isConfirmOpen}
-								movie={pendingMovie}
-								onConfirm={confirmAdd}
-								onCancel={cancelAdd}
-							/>
+							<FavoritesConfirmModalContainer />
 							<CompareModal />
 						</Panel>
 					</View>

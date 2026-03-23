@@ -23,6 +23,10 @@ export const formatDuration = (minutes?: number, hourLabel?: string, minLabel?: 
 		return `${m} ${minLabel}`;
 	}
 
+	if (m === 0) {
+		return `${h} ${hourLabel}`;
+	}
+
 	return `${h} ${hourLabel} ${m} ${minLabel}`;
 };
 

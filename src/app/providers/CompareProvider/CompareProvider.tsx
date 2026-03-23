@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import { Movie } from '@entities/movie/model/types';
 import { MAX_COMPARE_MOVIES } from '@shared/constants/api';
 import { MOVIES_COMPARE } from '@shared/constants/localStorageKeys';
