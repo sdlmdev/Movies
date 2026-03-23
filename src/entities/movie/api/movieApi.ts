@@ -95,15 +95,12 @@ export const movieApi = {
 		}
 
 		if (sortBy) {
-			let sortField: string;
-
-			if (sortBy === SORT_FIELDS.RATING) {
-				sortField = `${API_QUERY_PREFIXES.RATING}${provider}`;
-			} else if (sortBy === SORT_FIELDS.DURATION) {
-				sortField = API_FIELDS.MOVIE_LENGTH;
-			} else {
-				sortField = sortBy;
-			}
+			const sortField =
+				sortBy === SORT_FIELDS.RATING
+					? `${API_QUERY_PREFIXES.RATING}${provider}`
+					: sortBy === SORT_FIELDS.DURATION
+						? API_FIELDS.MOVIE_LENGTH
+						: sortBy;
 
 			params[API_PARAMS.SORT_FIELD] = sortField;
 
