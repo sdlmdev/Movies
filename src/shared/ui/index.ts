@@ -1,4 +1,3 @@
-export * from './Skeleton/PageSkeleton';
 export * from './Logo/Logo';
 export * from './NavigationButton/NavigationButton';
 

@@ -10,12 +10,15 @@ export const useMoviesList = (
 	const { data, isLoading, isFetching, isFetchingNextPage, hasNextPage, fetchNextPage, isError } =
 		useInfiniteQuery({
 			queryKey: [QUERY_KEYS.MOVIES, filters],
-			queryFn: async ({ pageParam }: { pageParam: number }) =>
-				movieApi.getMovies({
-					...filters,
-					page: pageParam,
-					limit: API_LIMITS.MOVIES_PER_PAGE,
-				}),
+			queryFn: async ({ pageParam, signal }) =>
+				movieApi.getMovies(
+					{
+						...filters,
+						page: pageParam,
+						limit: API_LIMITS.MOVIES_PER_PAGE,
+					},
+					signal,
+				),
 			initialPageParam: 1,
 			getNextPageParam: (lastPage) =>
 				lastPage.page < lastPage.pages ? lastPage.page + 1 : undefined,

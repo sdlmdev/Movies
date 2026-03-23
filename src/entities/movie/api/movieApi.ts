@@ -109,7 +109,10 @@ const buildMovieParams = (filters: Omit<MovieFilters, 'page' | 'limit'>): MovieA
 };
 
 export const movieApi = {
-	getMovies: async (filters: MovieFilters): Promise<PaginatedResponse<Movie>> => {
+	getMovies: async (
+		filters: MovieFilters,
+		signal?: AbortSignal,
+	): Promise<PaginatedResponse<Movie>> => {
 		const { page, limit, ...filterParams } = filters;
 
 		const params: MovieApiParams = {
@@ -121,6 +124,7 @@ export const movieApi = {
 		const { data } = await apiInstance.get<PaginatedResponse<Movie>>(API_ENDPOINTS.MOVIES, {
 			params,
 			paramsSerializer: { indexes: null },
+			signal,
 		});
 
 		return data;
@@ -130,6 +134,7 @@ export const movieApi = {
 		query: string,
 		page: number,
 		limit: number,
+		signal?: AbortSignal,
 	): Promise<PaginatedResponse<Movie>> => {
 		const { data } = await apiInstance.get<PaginatedResponse<Movie>>(API_ENDPOINTS.SEARCH, {
 			params: {
@@ -137,24 +142,27 @@ export const movieApi = {
 				[API_PARAMS.PAGE]: page,
 				[API_PARAMS.LIMIT]: limit,
 			},
+			signal,
 		});
 
 		return data;
 	},
 
-	getMovieById: async (id: number | string): Promise<Movie> => {
-		const { data } = await apiInstance.get<Movie>(`${API_ENDPOINTS.MOVIES}/${id}`);
+	getMovieById: async (id: number | string, signal?: AbortSignal): Promise<Movie> => {
+		const { data } = await apiInstance.get<Movie>(`${API_ENDPOINTS.MOVIES}/${id}`, { signal });
 
 		return data;
 	},
 
 	getPossibleValues: async (
 		field: typeof FILTER_FIELDS.GENRES | typeof FILTER_FIELDS.COUNTRIES,
+		signal?: AbortSignal,
 	): Promise<Array<{ name: string; slug: string }>> => {
 		const { data } = await apiInstance.get<Array<{ name: string; slug: string }>>(
 			API_ENDPOINTS.POSSIBLE_VALUES,
 			{
 				params: { field },
+				signal,
 			},
 		);
 

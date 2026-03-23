@@ -2,9 +2,10 @@ import { type ReactNode } from 'react';
 import { Button, Group, Header, Placeholder } from '@vkontakte/vkui';
 import { MovieVirtualGrid } from '@entities/movie';
 import type { Movie, RatingProvider } from '@entities/movie/model/types';
+import { UI_CHARS } from '@shared/constants/ui';
 import { useDictionary } from '@shared/hooks';
-import { PageSkeleton } from '@shared/ui';
 import styles from './MoviesList.module.scss';
+import { MoviesListSkeleton } from './MoviesListSkeleton/MoviesListSkeleton';
 
 interface MoviesListProps {
 	title: string;
@@ -44,7 +45,7 @@ export const MoviesList = ({
 	if (showSkeleton) {
 		return (
 			<Group header={<Header>{title}</Header>}>
-				<PageSkeleton />
+				<MoviesListSkeleton />
 			</Group>
 		);
 	}
@@ -74,7 +75,7 @@ export const MoviesList = ({
 
 	const footer = isFetchingNextPage ? (
 		<div className={styles.loadingMore}>
-			<PageSkeleton />
+			<MoviesListSkeleton />
 		</div>
 	) : movies.length > 0 ? (
 		<div className={styles.endOfList}>{t.movies.endOfList}</div>
@@ -87,7 +88,12 @@ export const MoviesList = ({
 			header={
 				<Header>
 					{title}
-					{displayTotal && <span className={styles.total}> · {displayTotal}</span>}
+					{displayTotal && (
+						<span className={styles.total}>
+							{UI_CHARS.MIDDLE_DOT}
+							{displayTotal}
+						</span>
+					)}
 				</Header>
 			}
 		>

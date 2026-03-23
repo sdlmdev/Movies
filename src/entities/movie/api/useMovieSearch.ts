@@ -9,8 +9,8 @@ export const useMovieSearch = (
 	const { data, isLoading, isFetching, isFetchingNextPage, hasNextPage, fetchNextPage, isError } =
 		useInfiniteQuery({
 			queryKey: [QUERY_KEYS.MOVIE_SEARCH, query],
-			queryFn: async ({ pageParam }: { pageParam: number }) =>
-				movieApi.searchMovies(query, pageParam, API_LIMITS.MOVIES_PER_PAGE),
+			queryFn: async ({ pageParam, signal }) =>
+				movieApi.searchMovies(query, pageParam, API_LIMITS.MOVIES_PER_PAGE, signal),
 			initialPageParam: 1,
 			getNextPageParam: (lastPage) =>
 				lastPage.page < lastPage.pages ? lastPage.page + 1 : undefined,

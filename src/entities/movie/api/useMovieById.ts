@@ -8,12 +8,12 @@ export const MOVIE_BY_ID_QUERY_KEY = (id: string | number) =>
 export const useMovieById = (id: string | number | undefined) => {
 	return useQuery({
 		queryKey: MOVIE_BY_ID_QUERY_KEY(id ?? ''),
-		queryFn: async () => {
+		queryFn: async ({ signal }) => {
 			if (!id) {
 				throw new Error('Movie id is required');
 			}
 
-			return movieApi.getMovieById(id);
+			return movieApi.getMovieById(id, signal);
 		},
 		enabled: Boolean(id),
 	});

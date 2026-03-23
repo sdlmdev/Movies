@@ -22,6 +22,7 @@ export const RATING_PRECISION = 1;
 export const UI_CHARS = {
 	RANGE_SEPARATOR: ' — ',
 	POINT_SEPARATOR: ' • ',
+	MIDDLE_DOT: ' · ',
 	COMMA: ', ',
 	DASH: '-',
 } as const;

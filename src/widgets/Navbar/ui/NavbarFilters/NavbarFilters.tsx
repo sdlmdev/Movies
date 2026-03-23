@@ -7,7 +7,7 @@ import { API_LIMITS, DEFAULT_RATING_PROVIDER, SORT_ORDERS } from '@shared/consta
 import { CURRENT_YEAR } from '@shared/constants/common';
 import { getRouteFavorites, getRouteMain } from '@shared/constants/router';
 import { useDictionary } from '@shared/hooks';
-import styles from './NavbarFiltersButton.module.scss';
+import styles from './NavbarFilters.module.scss';
 
 const MAX_RATING = 10;
 
