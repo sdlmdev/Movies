@@ -1,8 +1,8 @@
+import { type ReactNode } from 'react';
 import { Icon56CameraOutline } from '@vkontakte/icons';
-import { Box, EllipsisText, Headline, Image, ImageBaseProps, Title } from '@vkontakte/vkui';
+import { Box, EllipsisText, Headline, Image, type ImageBaseProps, Title } from '@vkontakte/vkui';
 import { RatingBadge } from '@entities/movie';
 import { POSTER_SIZES, UI_CHARS } from '@shared/constants/ui';
-import { MovieCardActions } from '@shared/ui';
 import { formatYear, getMovieName } from '../../lib/formatters';
 import type { Movie, RatingProvider } from '../../model/types';
 import styles from './MovieCard.module.scss';
@@ -13,6 +13,7 @@ interface MovieCardProps {
 	ratingProvider?: RatingProvider;
 	imageProps?: ImageBaseProps;
 	cellSize?: ImageBaseProps['size'];
+	actions?: ReactNode;
 }
 
 export const MovieCard = ({
@@ -21,6 +22,7 @@ export const MovieCard = ({
 	ratingProvider,
 	imageProps,
 	cellSize = POSTER_SIZES.LARGE,
+	actions,
 }: MovieCardProps) => {
 	const name = getMovieName(movie);
 	const year = formatYear(movie.year);
@@ -39,9 +41,11 @@ export const MovieCard = ({
 				<Image.Badge background="stroke">
 					<RatingBadge rating={rating} provider={ratingProvider} size="m" />
 				</Image.Badge>
-				<Image.FloatElement placement="top-start" inlineIndent="xs" blockIndent="xs">
-					<MovieCardActions movie={movie} />
-				</Image.FloatElement>
+				{actions && (
+					<Image.FloatElement placement="top-start" inlineIndent="xs" blockIndent="xs">
+						{actions}
+					</Image.FloatElement>
+				)}
 			</Image>
 			<Box inlineSize={cellSize}>
 				<Title level="3">

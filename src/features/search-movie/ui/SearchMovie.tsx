@@ -2,13 +2,13 @@ import { type ChangeEvent, type KeyboardEvent, useEffect, useState } from 'react
 import { useLocation, useNavigate } from 'react-router';
 import { Box, Flex, Popover, Search, Spinner } from '@vkontakte/vkui';
 import { Virtuoso } from 'react-virtuoso';
-import { useMoviesFilters } from '@pages/movies-list/model/useMoviesFilters';
-import { useSearch } from '@features/search-movie/model/lib/hooks/useSearch';
+import { useMoviesFilters } from '@features/movies-filters';
 import { MovieSearchCell, SearchSkeleton } from '@entities/movie';
 import { SEARCH_PARAMS } from '@shared/constants/api';
 import { SEARCH_CONFIG } from '@shared/constants/common';
 import { getRouteMain, getRouteMovie } from '@shared/constants/router';
 import { useDictionary } from '@shared/hooks';
+import { useSearch } from '../model/useSearch';
 import styles from './SearchMovie.module.scss';
 
 export const SearchMovie = () => {

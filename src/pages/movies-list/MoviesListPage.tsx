@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router';
 import { Button, Group, Header, Placeholder } from '@vkontakte/vkui';
+import { MovieCardActions } from '@widgets/MovieCardActions';
+import { useMoviesFilters } from '@features/movies-filters';
 import { MovieVirtualGrid, useMovieSearch } from '@entities/movie';
 import { useMoviesList } from '@entities/movie/api/useMoviesList';
 import { getRouteMovie } from '@shared/constants/router';
 import { useDictionary } from '@shared/hooks';
 import { PageSkeleton } from '@shared/ui';
-import { useMoviesFilters } from './model/useMoviesFilters';
 import styles from './MoviesListPage.module.scss';
 
 const MoviesListPage = () => {
@@ -86,6 +87,7 @@ const MoviesListPage = () => {
 					onMovieClick={async (movie) => navigate(getRouteMovie(movie.id))}
 					endReached={handleEndReached}
 					footer={footer}
+					renderActions={(movie) => <MovieCardActions movie={movie} />}
 				/>
 			)}
 		</Group>

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router';
 import { Icon56BookmarkOutline } from '@vkontakte/icons';
 import { Group, Header, Placeholder } from '@vkontakte/vkui';
 import { useFavorites } from '@app/providers/FavoritesProvider/FavoritesContext';
+import { MovieCardActions } from '@widgets/MovieCardActions';
 import { useFilteredFavorites } from '@features/add-to-favorites';
 import { MovieVirtualGrid } from '@entities/movie';
 import { getRouteMovie } from '@shared/constants/router';
@@ -30,6 +31,7 @@ const FavoritesPage = () => {
 					movies={movies}
 					ratingProvider={ratingProvider}
 					onMovieClick={async (movie) => navigate(getRouteMovie(movie.id))}
+					renderActions={(movie) => <MovieCardActions movie={movie} />}
 				/>
 			)}
 		</Group>

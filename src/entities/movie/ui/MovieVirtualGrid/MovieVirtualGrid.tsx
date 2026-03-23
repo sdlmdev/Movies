@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { SimpleGrid } from '@vkontakte/vkui';
 import { Virtuoso } from 'react-virtuoso';
 import { DEFAULT_RATING_PROVIDER } from '@shared/constants/api';
@@ -13,6 +13,7 @@ interface MovieVirtualGridProps {
 	onMovieClick: (movie: Movie) => void;
 	endReached?: VoidFunction;
 	footer?: ReactNode;
+	renderActions?: (movie: Movie) => ReactNode;
 }
 
 export const MovieVirtualGrid = ({
@@ -21,6 +22,7 @@ export const MovieVirtualGrid = ({
 	onMovieClick,
 	endReached,
 	footer,
+	renderActions,
 }: MovieVirtualGridProps) => {
 	const { containerRef, columns } = useGridColumns();
 
@@ -57,6 +59,7 @@ export const MovieVirtualGrid = ({
 								movie={movie}
 								ratingProvider={ratingProvider}
 								onClick={() => onMovieClick(movie)}
+								actions={renderActions?.(movie)}
 							/>
 						))}
 					</SimpleGrid>

@@ -2,12 +2,11 @@ import { useMatch } from 'react-router';
 import { Icon28SlidersOutline } from '@vkontakte/icons';
 import { IconButton } from '@vkontakte/vkui';
 import classNames from 'classnames';
-import { MoviesFiltersModal } from '@features/movies-filters';
+import { MoviesFiltersModal, useMoviesFilters } from '@features/movies-filters';
 import { API_LIMITS, DEFAULT_RATING_PROVIDER, SORT_ORDERS } from '@shared/constants/api';
 import { CURRENT_YEAR } from '@shared/constants/common';
 import { getRouteFavorites, getRouteMain } from '@shared/constants/router';
 import { useDictionary } from '@shared/hooks';
-import { useMoviesFilters } from '../../../pages/movies-list/model/useMoviesFilters';
 import styles from './NavbarFiltersButton.module.scss';
 
 const MAX_RATING = 10;
