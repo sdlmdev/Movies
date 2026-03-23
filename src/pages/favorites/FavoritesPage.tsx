@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router';
 import { Icon56BookmarkOutline } from '@vkontakte/icons';
-import { Group, Header, Placeholder } from '@vkontakte/vkui';
+import { Placeholder } from '@vkontakte/vkui';
 import { useFavorites } from '@app/providers/FavoritesProvider/FavoritesContext';
 import { MovieCardActions } from '@widgets/MovieCardActions';
+import { MoviesList } from '@widgets/MoviesList';
 import { useFilteredFavorites } from '@features/add-to-favorites';
-import { MovieVirtualGrid } from '@entities/movie';
 import { getRouteMovie } from '@shared/constants/router';
 import { useDictionary } from '@shared/hooks';
 
@@ -23,18 +23,13 @@ const FavoritesPage = () => {
 	}
 
 	return (
-		<Group header={<Header>{t.common.favorites}</Header>}>
-			{!movies.length ? (
-				<Placeholder title={t.common.noResults} />
-			) : (
-				<MovieVirtualGrid
-					movies={movies}
-					ratingProvider={ratingProvider}
-					onMovieClick={async (movie) => navigate(getRouteMovie(movie.id))}
-					renderActions={(movie) => <MovieCardActions movie={movie} />}
-				/>
-			)}
-		</Group>
+		<MoviesList
+			title={t.common.favorites}
+			movies={movies}
+			ratingProvider={ratingProvider}
+			onMovieClick={async (movie) => navigate(getRouteMovie(movie.id))}
+			renderActions={(movie) => <MovieCardActions movie={movie} />}
+		/>
 	);
 };
 

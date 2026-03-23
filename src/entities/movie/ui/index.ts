@@ -5,3 +5,5 @@ export * from './RatingBadge/RatingBadge';
 export * from './MovieHorizontalList/MovieHorizontalList';
 export * from './PersonHorizontalList/PersonHorizontalList';
 export * from './WatchabilityHorizontalList/WatchabilityHorizontalList';
+export * from './MovieDetailRatings/MovieDetailRatings';
+export * from './MovieDetailInfo/MovieDetailInfo';

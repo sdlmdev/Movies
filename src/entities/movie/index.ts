@@ -17,3 +17,5 @@ export * from './lib/filterMovies';
 export * from './ui/MovieHorizontalList/MovieHorizontalList';
 export * from './ui/PersonHorizontalList/PersonHorizontalList';
 export * from './ui/WatchabilityHorizontalList/WatchabilityHorizontalList';
+export * from './ui/MovieDetailRatings/MovieDetailRatings';
+export * from './ui/MovieDetailInfo/MovieDetailInfo';
