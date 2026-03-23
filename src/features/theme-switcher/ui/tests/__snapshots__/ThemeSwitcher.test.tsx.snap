@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ThemeSwitcher > matches snapshot in DARK theme 1`] = `
+<body>
+  <div>
+    <button
+      aria-label="toggle theme"
+      class="vkuiInternalTappable vkuiIconButton__host vkuiIconButton__sizeYNone vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+      data-testid="theme-switcher"
+      type="button"
+    >
+      <div
+        data-testid="icon-sun"
+      />
+      <span
+        aria-hidden="true"
+        class="vkuiTappable__stateLayer vkuiTappable__ripple"
+      />
+    </button>
+  </div>
+</body>
+`;
+
+exports[`ThemeSwitcher > matches snapshot in LIGHT theme 1`] = `
+<body>
+  <div>
+    <button
+      aria-label="toggle theme"
+      class="vkuiInternalTappable vkuiIconButton__host vkuiIconButton__sizeYNone vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+      data-testid="theme-switcher"
+      type="button"
+    >
+      <div
+        data-testid="icon-moon"
+      />
+      <span
+        aria-hidden="true"
+        class="vkuiTappable__stateLayer vkuiTappable__ripple"
+      />
+    </button>
+  </div>
+</body>
+`;

@@ -7,7 +7,7 @@ export const ThemeSwitcher = () => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
-		<IconButton onClick={toggleTheme} aria-label="toggle theme">
+		<IconButton onClick={toggleTheme} aria-label="toggle theme" data-testid="theme-switcher">
 			{theme === Theme.LIGHT ? <Icon28MoonOutline /> : <Icon28SunOutline />}
 		</IconButton>
 	);

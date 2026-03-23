@@ -11,7 +11,7 @@ export const Logo = () => {
 	const { search } = useLocation();
 
 	return (
-		<Link to={{ pathname: getRouteMain(), search }} className={cn(styles.logo)}>
+		<Link data-testid="logo" to={{ pathname: getRouteMain(), search }} className={cn(styles.logo)}>
 			<Flex gap="s" align="center" noWrap>
 				<Icon32VideoSquareOutline />
 				<Text>{t.common.movies}</Text>

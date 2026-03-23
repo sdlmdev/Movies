@@ -1,0 +1,1117 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MoviesFiltersModal > matches snapshot when open 1`] = `
+<body>
+  <div>
+    <div
+      aria-hidden="false"
+      class="vkuiModalOutlet__host"
+    >
+      <div
+        aria-hidden="true"
+        class="vkuiModalOverlay__host vkuiModalOverlay__nonInteractive vkuiModalOverlay__hostPositionAbsolute vkuiModalOverlay__hostStateEntering"
+      />
+      <div
+        aria-labelledby="_r_0_-label"
+        aria-modal="true"
+        class="vkuiModalPage__host vkuiModalPage__hostMobile vkuiModalPage__hostMobileSafeAreaInsetTop"
+        id="_r_0_"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          class="vkuiModalPage__documentMobile vkuiModalPage__documentStateEntering vkuiModalPage__document vkuiRootComponent__host"
+          role="document"
+        >
+          <div
+            class="vkuiModalPage__children vkuiModalPage__childrenMobile"
+          >
+            <div
+              class="vkuiModalPageContent__host vkuiCustomScrollView__host"
+            >
+              <div
+                class="vkuiModalPageHeader__host vkuiModalPageHeader__hostWithGaps"
+              >
+                <div
+                  class="vkuiInternalModalPageHeader__in vkuiPanelHeader__host vkuiInternalPanelHeader vkuiPanelHeader__android vkuiPanelHeader__trnsp vkuiPanelHeader__static vkuiInternalPanelHeader--static vkuiPanelHeader__noBefore vkuiInternalPanelHeader--no-before vkuiPanelHeader__sizeXNone vkuiPanelHeader__sizeYNone vkuiRootComponent__host"
+                >
+                  <div
+                    class="vkuiPanelHeader__in"
+                    data-onboarding-tooltip-container="fixed"
+                  >
+                    <div
+                      class="vkuiPanelHeader__before vkuiInternalPanelHeader__before"
+                    />
+                    <div
+                      class="vkuiPanelHeader__content"
+                    >
+                      <h2
+                        class="vkuiPanelHeader__contentIn"
+                        id="_r_0_-label"
+                      >
+                        Фильтры
+                      </h2>
+                    </div>
+                    <div
+                      class="vkuiPanelHeader__after vkuiInternalPanelHeader__after"
+                    >
+                      <button
+                        class="vkuiInternalTappable vkuiButton__host vkuiButton__sizeS vkuiButton__modeTertiary vkuiButton__appearanceNegative vkuiButton__sizeYNone vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+                        data-testid="filters-reset"
+                        type="button"
+                      >
+                        <span
+                          class="vkuiButton__in"
+                        >
+                          <span
+                            class="vkuiButton__before"
+                            data-testid="before"
+                            role="presentation"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-20 vkuiIcon--delete_outline_20"
+                              display="block"
+                              fill="currentColor"
+                              height="20"
+                              style="width: 20px; height: 20px;"
+                              viewBox="0 0 20 20"
+                              width="20"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M6.837 4H2.75a.75.75 0 0 0 0 1.5h.545l.907 9.248c.051.523.094.96.157 1.314.066.37.163.711.353 1.028a2.9 2.9 0 0 0 1.247 1.131c.334.158.682.222 1.058.25.36.029.797.029 1.323.029h3.32c.526 0 .964 0 1.323-.028.376-.03.724-.093 1.058-.25a2.9 2.9 0 0 0 1.247-1.132c.19-.317.287-.657.353-1.028.063-.355.106-.79.157-1.314l.907-9.248h.545a.75.75 0 0 0 0-1.5h-4.087a3.25 3.25 0 0 0-6.326 0m1.581 0h3.164a1.751 1.751 0 0 0-3.164 0m6.78 1.5H4.802l.89 9.072c.054.56.091.938.143 1.228.05.281.104.422.162.52a1.4 1.4 0 0 0 .603.546c.102.048.248.088.533.11.294.024.673.024 1.235.024h3.262c.562 0 .941 0 1.235-.023.285-.023.43-.063.533-.111a1.4 1.4 0 0 0 .603-.547c.058-.097.112-.238.162-.52.052-.29.09-.667.144-1.226l.89-9.073Zm-2.886 2.002a.75.75 0 0 1 .685.81l-.5 6.003a.75.75 0 0 1-1.494-.124l.5-6.003a.75.75 0 0 1 .81-.686Zm-4.624 0a.75.75 0 0 1 .81.686l.5 6.002a.75.75 0 0 1-1.495.125l-.5-6.003a.75.75 0 0 1 .685-.81"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="vkuiButton__content"
+                            data-testid="children"
+                          >
+                            Сбросить фильтры
+                          </span>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="vkuiSeparator__padded vkuiSeparator__appearancePrimary vkuiSeparator__directionHorizontal vkuiRootComponent__host"
+              >
+                <hr
+                  class="vkuiSeparator__in"
+                />
+              </div>
+              <div
+                class="vkuiFormItem__host vkuiFormItem__withPadding vkuiInternalFormItem vkuiFormItem__sizeYNone vkuiInternalFormItem--sizeY-none vkuiFormItem__withTop vkuiInternalFormItem--withTop vkuiRootComponent__host"
+              >
+                <div
+                  class="vkuiFormItem__top vkuiRootComponent__host"
+                >
+                  <span
+                    class="vkuiFormItem__label vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                  >
+                    Тип
+                  </span>
+                </div>
+                <div
+                  class="vkuistyles__-deviceType--desktop-mq vkuiCustomSelect__host vkuiCustomSelect__sizeYNone vkuiRootComponent__host"
+                >
+                  <div
+                    class="vkuiFormField__host vkuiFormField__modeDefault vkuiFormField__sizeYNone vkuistyles__-focus-visible vkuiCustomSelectInput__host vkuiCustomSelectInput__empty vkuiCustomSelectInput__sizeYNone vkuiCustomSelectInput__hasAfter"
+                  >
+                    <div
+                      class="vkuiFormField__scrollContainer"
+                    >
+                      <div
+                        class="vkuiFormField__content"
+                      >
+                        <div
+                          class="vkuiCustomSelectInput__inputGroup"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="vkuiCustomSelectInput__container"
+                            tabindex="-1"
+                          >
+                            <span
+                              class="vkuiCustomSelectInput__title vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                            />
+                          </div>
+                          <input
+                            aria-autocomplete="none"
+                            aria-controls="_r_1_"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            autocapitalize="none"
+                            autocomplete="off"
+                            autocorrect="off"
+                            class="vkuiCustomSelectInput__el vkuiCustomSelectInput__elCursorPointer vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiRootComponent__host"
+                            data-testid="filter-is-series"
+                            readonly=""
+                            role="combobox"
+                            spellcheck="false"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="vkuiFormField__iconWrapper"
+                      >
+                        <span
+                          class="vkuiFormField__after vkuiInternalFormField__after"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="vkuistyles__-sizeY--compact-mq vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-16 vkuiIcon--dropdown_20"
+                            display="block"
+                            fill="currentColor"
+                            height="16"
+                            style="width: 20px; height: 16px;"
+                            viewBox="0 0 20 16"
+                            width="20"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M4.22 5.875a1 1 0 0 1 1.405-.156L10 9.22l4.375-3.5a1 1 0 0 1 1.25 1.562l-5 4a1 1 0 0 1-1.25 0l-5-4a1 1 0 0 1-.156-1.406Z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                          <svg
+                            aria-hidden="true"
+                            class="vkuistyles__-sizeY--regular-mq vkuiIcon vkuiIcon--24 vkuiIcon--w-24 vkuiIcon--h-24 vkuiIcon--chevron_down_24"
+                            display="block"
+                            fill="currentColor"
+                            height="24"
+                            style="width: 24px; height: 24px;"
+                            viewBox="0 0 24 24"
+                            width="24"
+                          >
+                            <path
+                              d="M12 13.698 6.64 9.232a1 1 0 0 0-1.28 1.536l6 5a1 1 0 0 0 1.28 0l6-5a1 1 0 1 0-1.28-1.536z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="vkuiFormField__border"
+                    />
+                  </div>
+                  <span
+                    aria-live="polite"
+                    class="vkuiVisuallyHidden__host vkuiRootComponent__host"
+                  />
+                  <select
+                    aria-hidden="true"
+                    class="vkuiCustomSelect__control vkuiRootComponent__host"
+                    tabindex="-1"
+                  >
+                    <option
+                      value="__vkui_internal_Select_not_selected__"
+                    />
+                    <option
+                      value=""
+                    />
+                    <option
+                      value="false"
+                    />
+                    <option
+                      value="true"
+                    />
+                  </select>
+                </div>
+                <div
+                  class="vkuiFormField__host vkuiFormField__modeDefault vkuiFormField__sizeYNone vkuistyles__-focus-visible vkuiSelect__host vkuiInternalNativeSelect vkuiSelect__sizeYNone vkuistyles__-deviceType--mobile-mq"
+                >
+                  <div
+                    class="vkuiFormField__scrollContainer"
+                  >
+                    <div
+                      class="vkuiFormField__content"
+                    >
+                      <select
+                        class="vkuiSelect__el vkuiRootComponent__host"
+                        data-testid="filter-is-series"
+                      >
+                        <option
+                          value=""
+                        >
+                          Любой
+                        </option>
+                        <option
+                          value="false"
+                        >
+                          Фильмы
+                        </option>
+                        <option
+                          value="true"
+                        >
+                          Сериалы
+                        </option>
+                      </select>
+                      <div
+                        aria-hidden="true"
+                        class="vkuiSelect__container"
+                      >
+                        <span
+                          class="vkuiSelect__title vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                        >
+                          Любой
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="vkuiFormField__iconWrapper"
+                    >
+                      <span
+                        class="vkuiFormField__after vkuiInternalFormField__after"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="vkuistyles__-sizeY--compact-mq vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-16 vkuiIcon--dropdown_20"
+                          display="block"
+                          fill="currentColor"
+                          height="16"
+                          style="width: 20px; height: 16px;"
+                          viewBox="0 0 20 16"
+                          width="20"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M4.22 5.875a1 1 0 0 1 1.405-.156L10 9.22l4.375-3.5a1 1 0 0 1 1.25 1.562l-5 4a1 1 0 0 1-1.25 0l-5-4a1 1 0 0 1-.156-1.406Z"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="vkuistyles__-sizeY--regular-mq vkuiIcon vkuiIcon--24 vkuiIcon--w-24 vkuiIcon--h-24 vkuiIcon--chevron_down_24"
+                          display="block"
+                          fill="currentColor"
+                          height="24"
+                          style="width: 24px; height: 24px;"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M12 13.698 6.64 9.232a1 1 0 0 0-1.28 1.536l6 5a1 1 0 0 0 1.28 0l6-5a1 1 0 1 0-1.28-1.536z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="vkuiFormField__border"
+                  />
+                </div>
+              </div>
+              <div
+                class="vkuiFormItem__host vkuiFormItem__withPadding vkuiInternalFormItem vkuiFormItem__sizeYNone vkuiInternalFormItem--sizeY-none vkuiFormItem__withTop vkuiInternalFormItem--withTop vkuiRootComponent__host"
+              >
+                <div
+                  class="vkuiFormItem__top vkuiRootComponent__host"
+                >
+                  <span
+                    class="vkuiFormItem__label vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                  >
+                    Жанр
+                  </span>
+                </div>
+                <span
+                  class="vkuiSpinner__host vkuiRootComponent__host"
+                  role="status"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="vkuiIcon vkuiIcon--16 vkuiIcon--w-16 vkuiIcon--h-16"
+                    height="16"
+                    width="16"
+                  >
+                    <path
+                      d="M8 3.25a4.75 4.75 0 0 0-4.149 7.065.75.75 0 1 1-1.31.732A6.25 6.25 0 1 1 8 14.25a.75.75 0 0 1 .001-1.5 4.75 4.75 0 1 0 0-9.5Z"
+                      fill="currentColor"
+                    >
+                      <animatetransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        dur="0.7s"
+                        from="0 8 8"
+                        repeatCount="indefinite"
+                        to="360 8 8"
+                        type="rotate"
+                      />
+                    </path>
+                  </svg>
+                  <span
+                    class="vkuiVisuallyHidden__host vkuiRootComponent__host"
+                  >
+                    Загружается...
+                  </span>
+                </span>
+              </div>
+              <div
+                class="vkuiFormItem__host vkuiFormItem__withPadding vkuiInternalFormItem vkuiFormItem__sizeYNone vkuiInternalFormItem--sizeY-none vkuiFormItem__withTop vkuiInternalFormItem--withTop vkuiRootComponent__host"
+              >
+                <div
+                  class="vkuiFormItem__top vkuiRootComponent__host"
+                >
+                  <span
+                    class="vkuiFormItem__label vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                  >
+                    Страны
+                  </span>
+                </div>
+                <span
+                  class="vkuiSpinner__host vkuiRootComponent__host"
+                  role="status"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="vkuiIcon vkuiIcon--16 vkuiIcon--w-16 vkuiIcon--h-16"
+                    height="16"
+                    width="16"
+                  >
+                    <path
+                      d="M8 3.25a4.75 4.75 0 0 0-4.149 7.065.75.75 0 1 1-1.31.732A6.25 6.25 0 1 1 8 14.25a.75.75 0 0 1 .001-1.5 4.75 4.75 0 1 0 0-9.5Z"
+                      fill="currentColor"
+                    >
+                      <animatetransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        dur="0.7s"
+                        from="0 8 8"
+                        repeatCount="indefinite"
+                        to="360 8 8"
+                        type="rotate"
+                      />
+                    </path>
+                  </svg>
+                  <span
+                    class="vkuiVisuallyHidden__host vkuiRootComponent__host"
+                  >
+                    Загружается...
+                  </span>
+                </span>
+              </div>
+              <div
+                class="vkuiFormItem__host vkuiFormItem__withPadding vkuiInternalFormItem vkuiFormItem__sizeYNone vkuiInternalFormItem--sizeY-none vkuiFormItem__withTop vkuiInternalFormItem--withTop vkuiRootComponent__host"
+              >
+                <div
+                  class="vkuiFormItem__top vkuiRootComponent__host"
+                >
+                  <span
+                    class="vkuiFormItem__label vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                  >
+                    Возрастной рейтинг
+                  </span>
+                </div>
+                <div
+                  aria-label=""
+                  class="vkuiFormField__host vkuiFormField__modeDefault vkuiFormField__sizeYNone vkuistyles__-focus-visible vkuiChipsSelect__host"
+                  role="group"
+                >
+                  <div
+                    class="vkuiFormField__scrollContainer"
+                  >
+                    <div
+                      class="vkuiFormField__content"
+                    >
+                      <div
+                        class="vkuiChipsInputBase__host vkuiChipsInputBase__sizeYNone"
+                      >
+                        <div
+                          aria-label="Выбранные элементы"
+                          aria-orientation="horizontal"
+                          class="vkuiChipsInputBase__listBox"
+                          role="listbox"
+                        >
+                          <div
+                            aria-description="Для удаления используйте Backspace или Delete"
+                            aria-posinset="1"
+                            aria-selected="true"
+                            aria-setsize="1"
+                            class="vkuiChip__host vkuiChip__sizeYNone vkuiChip__modePrimary vkuistyles__-focus-visible vkuiChipsInputBase__chip vkuiRootComponent__host"
+                            data-index="0"
+                            data-value="18"
+                            data-value-type="string"
+                            role="option"
+                            tabindex="0"
+                          >
+                            <div
+                              class="vkuiChip__in"
+                            >
+                              <span
+                                class="vkuiChip__content vkuiFootnote__host vkuiFootnote__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                              >
+                                18+
+                              </span>
+                            </div>
+                            <div
+                              class="vkuiChip__removable"
+                            >
+                              <button
+                                class="vkuiChip__remove"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <span
+                                  class="vkuiVisuallyHidden__host vkuiRootComponent__host"
+                                >
+                                    
+                                  Удалить
+                                   
+                                  18+
+                                </span>
+                                <svg
+                                  aria-hidden="true"
+                                  class="vkuiIcon vkuiIcon--16 vkuiIcon--w-16 vkuiIcon--h-16 vkuiIcon--cancel_16"
+                                  display="block"
+                                  fill="none"
+                                  height="16"
+                                  style="width: 16px; height: 16px;"
+                                  viewBox="0 0 16 16"
+                                  width="16"
+                                >
+                                  <path
+                                    d="M12.736 3.264a.9.9 0 0 1 0 1.272L9.273 8l3.463 3.464a.9.9 0 0 1 .081 1.18l-.08.092a.9.9 0 0 1-1.273 0L8 9.273l-3.464 3.463a.9.9 0 0 1-1.272-1.272L6.727 8 3.264 4.536a.9.9 0 0 1-.08-1.18l.08-.092a.9.9 0 0 1 1.272 0L8 6.727l3.464-3.463a.9.9 0 0 1 1.272 0"
+                                    fill="currentColor"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          aria-autocomplete="list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-label=""
+                          autocapitalize="none"
+                          autocomplete="off"
+                          autocorrect="off"
+                          class="vkuiChipsInputBase__el vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                          data-testid="filter-age-rating"
+                          id="chips-input-base-generated-id-_r_3_"
+                          role="combobox"
+                          spellcheck="false"
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="vkuiFormField__iconWrapper"
+                    >
+                      <span
+                        class="vkuiFormField__after vkuiInternalFormField__after"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="vkuistyles__-sizeY--compact-mq vkuiChipsSelect__dropdownIcon vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-16 vkuiIcon--dropdown_20"
+                          display="block"
+                          fill="currentColor"
+                          height="16"
+                          style="width: 20px; height: 16px;"
+                          viewBox="0 0 20 16"
+                          width="20"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M4.22 5.875a1 1 0 0 1 1.405-.156L10 9.22l4.375-3.5a1 1 0 0 1 1.25 1.562l-5 4a1 1 0 0 1-1.25 0l-5-4a1 1 0 0 1-.156-1.406Z"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="vkuistyles__-sizeY--regular-mq vkuiChipsSelect__dropdownIcon vkuiIcon vkuiIcon--24 vkuiIcon--w-24 vkuiIcon--h-24 vkuiIcon--chevron_down_24"
+                          display="block"
+                          fill="currentColor"
+                          height="24"
+                          style="width: 24px; height: 24px;"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M12 13.698 6.64 9.232a1 1 0 0 0-1.28 1.536l6 5a1 1 0 0 0 1.28 0l6-5a1 1 0 1 0-1.28-1.536z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="vkuiFormField__border"
+                  />
+                </div>
+              </div>
+              <div
+                class="vkuiFormItem__host vkuiFormItem__withPadding vkuiInternalFormItem vkuiFormItem__sizeYNone vkuiInternalFormItem--sizeY-none vkuiFormItem__withTop vkuiInternalFormItem--withTop vkuiRootComponent__host"
+              >
+                <div
+                  class="vkuiFormItem__top vkuiRootComponent__host"
+                >
+                  <span
+                    class="vkuiFormItem__label vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                  >
+                    Источник рейтинга
+                  </span>
+                </div>
+                <div
+                  class="vkuistyles__-deviceType--desktop-mq vkuiCustomSelect__host vkuiCustomSelect__sizeYNone vkuiRootComponent__host"
+                >
+                  <div
+                    class="vkuiFormField__host vkuiFormField__modeDefault vkuiFormField__sizeYNone vkuistyles__-focus-visible vkuiCustomSelectInput__host vkuiCustomSelectInput__sizeYNone vkuiCustomSelectInput__hasAfter"
+                  >
+                    <div
+                      class="vkuiFormField__scrollContainer"
+                    >
+                      <div
+                        class="vkuiFormField__content"
+                      >
+                        <div
+                          class="vkuiCustomSelectInput__inputGroup"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="vkuiCustomSelectInput__container"
+                            tabindex="-1"
+                          >
+                            <span
+                              class="vkuiCustomSelectInput__title vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                            >
+                              Кинопоиск
+                            </span>
+                          </div>
+                          <input
+                            aria-autocomplete="none"
+                            aria-controls="_r_4_"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            autocapitalize="none"
+                            autocomplete="off"
+                            autocorrect="off"
+                            class="vkuiCustomSelectInput__el vkuiCustomSelectInput__elCursorPointer vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiRootComponent__host"
+                            data-testid="filter-rating-provider"
+                            placeholder=""
+                            readonly=""
+                            role="combobox"
+                            spellcheck="false"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="vkuiFormField__iconWrapper"
+                      >
+                        <span
+                          class="vkuiFormField__after vkuiInternalFormField__after"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="vkuistyles__-sizeY--compact-mq vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-16 vkuiIcon--dropdown_20"
+                            display="block"
+                            fill="currentColor"
+                            height="16"
+                            style="width: 20px; height: 16px;"
+                            viewBox="0 0 20 16"
+                            width="20"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M4.22 5.875a1 1 0 0 1 1.405-.156L10 9.22l4.375-3.5a1 1 0 0 1 1.25 1.562l-5 4a1 1 0 0 1-1.25 0l-5-4a1 1 0 0 1-.156-1.406Z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                          <svg
+                            aria-hidden="true"
+                            class="vkuistyles__-sizeY--regular-mq vkuiIcon vkuiIcon--24 vkuiIcon--w-24 vkuiIcon--h-24 vkuiIcon--chevron_down_24"
+                            display="block"
+                            fill="currentColor"
+                            height="24"
+                            style="width: 24px; height: 24px;"
+                            viewBox="0 0 24 24"
+                            width="24"
+                          >
+                            <path
+                              d="M12 13.698 6.64 9.232a1 1 0 0 0-1.28 1.536l6 5a1 1 0 0 0 1.28 0l6-5a1 1 0 1 0-1.28-1.536z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="vkuiFormField__border"
+                    />
+                  </div>
+                  <span
+                    aria-live="polite"
+                    class="vkuiVisuallyHidden__host vkuiRootComponent__host"
+                  />
+                  <select
+                    aria-hidden="true"
+                    class="vkuiCustomSelect__control vkuiRootComponent__host"
+                    tabindex="-1"
+                  >
+                    <option
+                      value="kp"
+                    />
+                    <option
+                      value="imdb"
+                    />
+                    <option
+                      value="tmdb"
+                    />
+                  </select>
+                </div>
+                <div
+                  class="vkuiFormField__host vkuiFormField__modeDefault vkuiFormField__sizeYNone vkuistyles__-focus-visible vkuiSelect__host vkuiInternalNativeSelect vkuiSelect__sizeYNone vkuistyles__-deviceType--mobile-mq"
+                >
+                  <div
+                    class="vkuiFormField__scrollContainer"
+                  >
+                    <div
+                      class="vkuiFormField__content"
+                    >
+                      <select
+                        class="vkuiSelect__el vkuiRootComponent__host"
+                        data-testid="filter-rating-provider"
+                      >
+                        <option
+                          value="kp"
+                        >
+                          Кинопоиск
+                        </option>
+                        <option
+                          value="imdb"
+                        >
+                          IMDb
+                        </option>
+                        <option
+                          value="tmdb"
+                        >
+                          TMDB
+                        </option>
+                      </select>
+                      <div
+                        aria-hidden="true"
+                        class="vkuiSelect__container"
+                      >
+                        <span
+                          class="vkuiSelect__title vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                        >
+                          Кинопоиск
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="vkuiFormField__iconWrapper"
+                    >
+                      <span
+                        class="vkuiFormField__after vkuiInternalFormField__after"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="vkuistyles__-sizeY--compact-mq vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-16 vkuiIcon--dropdown_20"
+                          display="block"
+                          fill="currentColor"
+                          height="16"
+                          style="width: 20px; height: 16px;"
+                          viewBox="0 0 20 16"
+                          width="20"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M4.22 5.875a1 1 0 0 1 1.405-.156L10 9.22l4.375-3.5a1 1 0 0 1 1.25 1.562l-5 4a1 1 0 0 1-1.25 0l-5-4a1 1 0 0 1-.156-1.406Z"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="vkuistyles__-sizeY--regular-mq vkuiIcon vkuiIcon--24 vkuiIcon--w-24 vkuiIcon--h-24 vkuiIcon--chevron_down_24"
+                          display="block"
+                          fill="currentColor"
+                          height="24"
+                          style="width: 24px; height: 24px;"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M12 13.698 6.64 9.232a1 1 0 0 0-1.28 1.536l6 5a1 1 0 0 0 1.28 0l6-5a1 1 0 1 0-1.28-1.536z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="vkuiFormField__border"
+                  />
+                </div>
+              </div>
+              <div
+                class="vkuiFormItem__host vkuiFormItem__withPadding vkuiInternalFormItem vkuiFormItem__sizeYNone vkuiInternalFormItem--sizeY-none vkuiFormItem__withTop vkuiInternalFormItem--withTop vkuiRootComponent__host"
+              >
+                <div
+                  class="vkuiFormItem__top vkuiRootComponent__host"
+                >
+                  <span
+                    class="vkuiFormItem__label vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                  >
+                    Сортировка
+                  </span>
+                </div>
+                <div
+                  class="vkuistyles__-deviceType--desktop-mq vkuiCustomSelect__host vkuiCustomSelect__sizeYNone vkuiRootComponent__host"
+                >
+                  <div
+                    class="vkuiFormField__host vkuiFormField__modeDefault vkuiFormField__sizeYNone vkuistyles__-focus-visible vkuiCustomSelectInput__host vkuiCustomSelectInput__sizeYNone vkuiCustomSelectInput__hasAfter"
+                  >
+                    <div
+                      class="vkuiFormField__scrollContainer"
+                    >
+                      <div
+                        class="vkuiFormField__content"
+                      >
+                        <div
+                          class="vkuiCustomSelectInput__inputGroup"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="vkuiCustomSelectInput__container"
+                            tabindex="-1"
+                          >
+                            <span
+                              class="vkuiCustomSelectInput__title vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                            >
+                              Без сортировки
+                            </span>
+                          </div>
+                          <input
+                            aria-autocomplete="none"
+                            aria-controls="_r_5_"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            autocapitalize="none"
+                            autocomplete="off"
+                            autocorrect="off"
+                            class="vkuiCustomSelectInput__el vkuiCustomSelectInput__elCursorPointer vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiRootComponent__host"
+                            data-testid="filter-sort-by"
+                            placeholder=""
+                            readonly=""
+                            role="combobox"
+                            spellcheck="false"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="vkuiFormField__iconWrapper"
+                      >
+                        <span
+                          class="vkuiFormField__after vkuiInternalFormField__after"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="vkuistyles__-sizeY--compact-mq vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-16 vkuiIcon--dropdown_20"
+                            display="block"
+                            fill="currentColor"
+                            height="16"
+                            style="width: 20px; height: 16px;"
+                            viewBox="0 0 20 16"
+                            width="20"
+                          >
+                            <path
+                              clip-rule="evenodd"
+                              d="M4.22 5.875a1 1 0 0 1 1.405-.156L10 9.22l4.375-3.5a1 1 0 0 1 1.25 1.562l-5 4a1 1 0 0 1-1.25 0l-5-4a1 1 0 0 1-.156-1.406Z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                          <svg
+                            aria-hidden="true"
+                            class="vkuistyles__-sizeY--regular-mq vkuiIcon vkuiIcon--24 vkuiIcon--w-24 vkuiIcon--h-24 vkuiIcon--chevron_down_24"
+                            display="block"
+                            fill="currentColor"
+                            height="24"
+                            style="width: 24px; height: 24px;"
+                            viewBox="0 0 24 24"
+                            width="24"
+                          >
+                            <path
+                              d="M12 13.698 6.64 9.232a1 1 0 0 0-1.28 1.536l6 5a1 1 0 0 0 1.28 0l6-5a1 1 0 1 0-1.28-1.536z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="vkuiFormField__border"
+                    />
+                  </div>
+                  <span
+                    aria-live="polite"
+                    class="vkuiVisuallyHidden__host vkuiRootComponent__host"
+                  />
+                  <select
+                    aria-hidden="true"
+                    class="vkuiCustomSelect__control vkuiRootComponent__host"
+                    tabindex="-1"
+                  >
+                    <option
+                      value=""
+                    />
+                    <option
+                      value="rating"
+                    />
+                    <option
+                      value="year"
+                    />
+                    <option
+                      value="duration"
+                    />
+                  </select>
+                </div>
+                <div
+                  class="vkuiFormField__host vkuiFormField__modeDefault vkuiFormField__sizeYNone vkuistyles__-focus-visible vkuiSelect__host vkuiInternalNativeSelect vkuiSelect__sizeYNone vkuistyles__-deviceType--mobile-mq"
+                >
+                  <div
+                    class="vkuiFormField__scrollContainer"
+                  >
+                    <div
+                      class="vkuiFormField__content"
+                    >
+                      <select
+                        class="vkuiSelect__el vkuiRootComponent__host"
+                        data-testid="filter-sort-by"
+                      >
+                        <option
+                          value=""
+                        >
+                          Без сортировки
+                        </option>
+                        <option
+                          value="rating"
+                        >
+                          Рейтинг
+                        </option>
+                        <option
+                          value="year"
+                        >
+                          Год
+                        </option>
+                        <option
+                          value="duration"
+                        >
+                          Длительность
+                        </option>
+                      </select>
+                      <div
+                        aria-hidden="true"
+                        class="vkuiSelect__container"
+                      >
+                        <span
+                          class="vkuiSelect__title vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                        >
+                          Без сортировки
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="vkuiFormField__iconWrapper"
+                    >
+                      <span
+                        class="vkuiFormField__after vkuiInternalFormField__after"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="vkuistyles__-sizeY--compact-mq vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-16 vkuiIcon--dropdown_20"
+                          display="block"
+                          fill="currentColor"
+                          height="16"
+                          style="width: 20px; height: 16px;"
+                          viewBox="0 0 20 16"
+                          width="20"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M4.22 5.875a1 1 0 0 1 1.405-.156L10 9.22l4.375-3.5a1 1 0 0 1 1.25 1.562l-5 4a1 1 0 0 1-1.25 0l-5-4a1 1 0 0 1-.156-1.406Z"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="vkuistyles__-sizeY--regular-mq vkuiIcon vkuiIcon--24 vkuiIcon--w-24 vkuiIcon--h-24 vkuiIcon--chevron_down_24"
+                          display="block"
+                          fill="currentColor"
+                          height="24"
+                          style="width: 24px; height: 24px;"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M12 13.698 6.64 9.232a1 1 0 0 0-1.28 1.536l6 5a1 1 0 0 0 1.28 0l6-5a1 1 0 1 0-1.28-1.536z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="vkuiFormField__border"
+                  />
+                </div>
+              </div>
+              <div
+                class="vkuiFormItem__host vkuiFormItem__withPadding vkuiInternalFormItem vkuiFormItem__sizeYNone vkuiInternalFormItem--sizeY-none vkuiFormItem__withTop vkuiInternalFormItem--withTop vkuiRootComponent__host"
+              >
+                <div
+                  class="vkuiFormItem__top vkuiRootComponent__host"
+                >
+                  <span
+                    class="vkuiFormItem__label vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                  >
+                    Рейтинг: 0 - 10
+                  </span>
+                </div>
+                <div
+                  class="vkuiSlider__host vkuiSlider__sizeYNone vkuiSlider__sizeL vkuiSlider__multiple"
+                  data-value="0,10"
+                  style="--vkui_internal--Slider_start_value: 0; --vkui_internal--Slider_end_value: 100;"
+                >
+                  <div
+                    class="vkuiSlider__track"
+                  />
+                  <div
+                    class="vkuiSlider__trackFill"
+                  />
+                  <div
+                    class="vkuiSlider__thumbs"
+                  >
+                    <span
+                      class="vkuiSliderThumb__host vkuistyles__-focus-visible vkuiSlider__thumb vkuiSlider__thumbStart"
+                      data-type="start"
+                    >
+                      <input
+                        aria-orientation="horizontal"
+                        class="vkuiSliderThumb__nativeInput"
+                        data-type="start"
+                        max="10"
+                        min="0"
+                        step="0.5"
+                        type="range"
+                        value="0"
+                      />
+                    </span>
+                    <span
+                      class="vkuiSliderThumb__host vkuistyles__-focus-visible vkuiSlider__thumb vkuiSlider__thumbEnd"
+                      data-type="end"
+                    >
+                      <input
+                        aria-orientation="horizontal"
+                        class="vkuiSliderThumb__nativeInput"
+                        data-type="end"
+                        max="10"
+                        min="0"
+                        step="0.5"
+                        type="range"
+                        value="10"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="vkuiFormItem__host vkuiFormItem__withPadding vkuiInternalFormItem vkuiFormItem__sizeYNone vkuiInternalFormItem--sizeY-none vkuiFormItem__withTop vkuiInternalFormItem--withTop vkuiRootComponent__host"
+              >
+                <div
+                  class="vkuiFormItem__top vkuiRootComponent__host"
+                >
+                  <span
+                    class="vkuiFormItem__label vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                  >
+                    Год выпуска: 1990 - 2024
+                  </span>
+                </div>
+                <div
+                  class="vkuiSlider__host vkuiSlider__sizeYNone vkuiSlider__sizeL vkuiSlider__multiple"
+                  data-value="1990,2024"
+                  style="--vkui_internal--Slider_start_value: 0; --vkui_internal--Slider_end_value: 94.44444444444444;"
+                >
+                  <div
+                    class="vkuiSlider__track"
+                  />
+                  <div
+                    class="vkuiSlider__trackFill"
+                  />
+                  <div
+                    class="vkuiSlider__thumbs"
+                  >
+                    <span
+                      class="vkuiSliderThumb__host vkuistyles__-focus-visible vkuiSlider__thumb vkuiSlider__thumbStart"
+                      data-type="start"
+                    >
+                      <input
+                        aria-orientation="horizontal"
+                        class="vkuiSliderThumb__nativeInput"
+                        data-type="start"
+                        max="2024"
+                        min="1990"
+                        step="1"
+                        type="range"
+                        value="1990"
+                      />
+                    </span>
+                    <span
+                      class="vkuiSliderThumb__host vkuistyles__-focus-visible vkuiSlider__thumb vkuiSlider__thumbEnd"
+                      data-type="end"
+                    >
+                      <input
+                        aria-orientation="horizontal"
+                        class="vkuiSliderThumb__nativeInput"
+                        data-type="end"
+                        max="2026"
+                        min="1990"
+                        step="1"
+                        type="range"
+                        value="2024"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="_footer_1ffb72"
+              >
+                <button
+                  class="vkuiInternalTappable vkuiButton__host vkuiButton__sizeL vkuiButton__modePrimary vkuiButton__appearanceAccent vkuiButton__sizeYNone vkuiButton__stretched vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+                  data-testid="filters-apply"
+                  type="button"
+                >
+                  <span
+                    class="vkuiButton__in"
+                  >
+                    <span
+                      class="vkuiButton__content"
+                      data-testid="children"
+                    >
+                      Применить
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -1,10 +1,11 @@
 import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { SEARCH_CONFIG } from '@shared/constants/common';
 import { useDebounce } from './useDebounce';
 
 const INITIAL_VALUE = 'test';
 const UPDATED_VALUE = 'updated';
-const DELAY = 500;
+const DELAY = SEARCH_CONFIG.DEBOUNCE_DELAY;
 
 describe('useDebounce', () => {
 	beforeEach(() => {
@@ -27,9 +28,7 @@ describe('useDebounce', () => {
 		});
 
 		expect(result.current).toBe(INITIAL_VALUE);
-
 		rerender({ value: UPDATED_VALUE, delay: DELAY });
-
 		expect(result.current).toBe(INITIAL_VALUE);
 
 		act(() => {

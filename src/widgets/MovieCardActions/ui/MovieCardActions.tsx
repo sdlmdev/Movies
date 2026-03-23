@@ -5,7 +5,7 @@ import {
 	Icon20BookmarkSlashOutline,
 } from '@vkontakte/icons';
 import { Button, ButtonGroup } from '@vkontakte/vkui';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { useFavoritesActions, useFavoritesData } from '@features/add-to-favorites';
 import { useCompareActions, useCompareData } from '@features/compare';
 import type { Movie } from '@entities/movie/model/types';
@@ -50,25 +50,23 @@ export const MovieCardActions = ({ movie }: MovieCardActionsProps) => {
 		<ButtonGroup>
 			<Button
 				mode="tertiary"
+				data-testid="favorite-button"
 				label={favorite ? t.movie.removeFromFavorites : t.movie.addToFavorites}
 				onClick={handleFavoriteClick}
 				after={
 					favorite ? (
 						<Icon20BookmarkSlashOutline className={styles.active} />
 					) : (
-						<Icon20BookmarkOutline className={styles.inactive} />
+						<Icon20BookmarkOutline />
 					)
 				}
 			></Button>
 			<Button
 				mode="tertiary"
+				data-testid="compare-button"
 				label={inCompare ? t.movie.removeFromCompare : t.common.compare}
 				onClick={handleCompareClick}
-				after={
-					<Icon20Arrows2LeftRightOutward
-						className={classNames(inCompare ? styles.active : styles.inactive)}
-					/>
-				}
+				after={<Icon20Arrows2LeftRightOutward className={cn({ [styles.active]: inCompare })} />}
 			></Button>
 		</ButtonGroup>
 	);

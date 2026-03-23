@@ -18,6 +18,7 @@ export const MovieSearchCell = ({ movie, onClick }: MoviePosterProps) => {
 
 	return (
 		<SimpleCell
+			data-testid="movie-search-cell"
 			onClick={() => onClick(id)}
 			before={<Image src={poster?.previewUrl ?? poster?.url} size={POSTER_SIZES.SMALL} />}
 			subtitle={subtitle}

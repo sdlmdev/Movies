@@ -8,7 +8,7 @@ interface CompareProviderProps {
 	children: ReactNode;
 }
 
-const MAX_COMPARE_ITEMS = 2;
+export const MAX_COMPARE_ITEMS = 2;
 
 export const CompareProvider = ({ children }: CompareProviderProps) => {
 	const [compareList, setCompareList] = useLocalStorage<Array<Movie>>(MOVIES_COMPARE, []);

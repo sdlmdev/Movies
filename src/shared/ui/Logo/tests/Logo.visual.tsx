@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { TEST_TIMEOUTS } from '@shared/test/constants';
 import { mockMoviesApi } from '../../../test/playwright-mocks';
 
 test.describe('Logo Visual', () => {
@@ -8,7 +9,9 @@ test.describe('Logo Visual', () => {
 	});
 
 	test('should look correct', async ({ page }) => {
-		const logo = page.locator('.vkuiPanelHeader__before, header div:first-child').first();
+		const logo = page.getByTestId('logo');
+
+		await expect(logo).toBeInViewport({ timeout: TEST_TIMEOUTS.VISUAL });
 
 		await expect(logo).toHaveScreenshot('logo.png');
 	});

@@ -1,6 +1,6 @@
 import { Icon20Arrows2LeftRightOutward, Icon28FavoriteOutline } from '@vkontakte/icons';
 import { ButtonGroup, Flex, IconButton } from '@vkontakte/vkui';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { useCompareData, useCompareModal } from '@features/compare';
 import { LangSwitcher } from '@features/lang-switcher';
 import { ThemeSwitcher } from '@features/theme-switcher';
@@ -27,14 +27,23 @@ export const NavbarControls = ({ isMobile, onFiltersClick }: NavbarControlsProps
 			<ButtonGroup align="center" gap="s" mode={isMobile ? 'vertical' : 'horizontal'}>
 				<LangSwitcher />
 				<ThemeSwitcher />
-				<NavigationButton to={getRouteFavorites()} aria-label={t.common.favorites}>
+				<NavigationButton
+					to={getRouteFavorites()}
+					aria-label={t.common.favorites}
+					data-testid="favorite-button"
+				>
 					<Icon28FavoriteOutline />
 				</NavigationButton>
-				<IconButton aria-label={t.common.compare} onClick={openCompare} label={t.common.compare}>
+				<IconButton
+					aria-label={t.common.compare}
+					onClick={openCompare}
+					label={t.common.compare}
+					data-testid="compare-button"
+				>
 					<Icon20Arrows2LeftRightOutward
 						width={28}
 						height={28}
-						className={classNames({
+						className={cn({
 							[styles.active]: compareList.length > 0,
 						})}
 					/>

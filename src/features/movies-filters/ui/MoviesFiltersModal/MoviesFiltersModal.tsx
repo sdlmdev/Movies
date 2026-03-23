@@ -135,6 +135,7 @@ export const MoviesFiltersModal = ({
 						mode="tertiary"
 						appearance="negative"
 						before={<Icon20DeleteOutline />}
+						data-testid="filters-reset"
 						onClick={handleReset}
 					>
 						{t.filters.reset}
@@ -146,6 +147,7 @@ export const MoviesFiltersModal = ({
 
 			<FormItem top={t.filters.type}>
 				<Select
+					data-testid="filter-is-series"
 					value={localIsSeries[0] ?? ''}
 					onChange={(e) => setLocalIsSeries(e.target.value ? [e.target.value] : [])}
 					options={isSeriesOptions}
@@ -157,6 +159,7 @@ export const MoviesFiltersModal = ({
 					<Spinner size="s" />
 				) : (
 					<ChipsSelect
+						data-testid="filter-genres"
 						value={selectedGenres}
 						onChange={(opts) => setLocalGenres(opts.map((o) => o.value))}
 						options={genreOptions}
@@ -170,6 +173,7 @@ export const MoviesFiltersModal = ({
 					<Spinner size="s" />
 				) : (
 					<ChipsSelect
+						data-testid="filter-countries"
 						value={selectedCountries}
 						onChange={(opts) => setLocalCountries(opts.map((o) => o.value))}
 						options={countryOptions}
@@ -179,6 +183,7 @@ export const MoviesFiltersModal = ({
 			</FormItem>
 			<FormItem top={t.filters.ageRating}>
 				<ChipsSelect
+					data-testid="filter-age-rating"
 					value={selectedAgeRating}
 					onChange={(opts) => setLocalAgeRating(opts.map((o) => o.value))}
 					options={ageRatingOptions}
@@ -188,6 +193,7 @@ export const MoviesFiltersModal = ({
 
 			<FormItem top={t.filters.ratingProvider}>
 				<Select
+					data-testid="filter-rating-provider"
 					value={localProvider}
 					onChange={(e) => setLocalProvider(e.target.value as RatingProvider)}
 					options={providerOptions}
@@ -196,6 +202,7 @@ export const MoviesFiltersModal = ({
 
 			<FormItem top={t.filters.sortBy}>
 				<Select
+					data-testid="filter-sort-by"
 					value={localSortBy}
 					onChange={(e) => setLocalSortBy(e.target.value as SortField | '')}
 					options={sortFieldOptions}
@@ -205,6 +212,7 @@ export const MoviesFiltersModal = ({
 			{localSortBy && (
 				<FormItem top={t.filters.sortOrder}>
 					<Select
+						data-testid="filter-sort-order"
 						value={localSortOrder}
 						onChange={(e) => setLocalSortOrder(e.target.value as SortOrder)}
 						options={sortOrderOptions}
@@ -239,7 +247,7 @@ export const MoviesFiltersModal = ({
 			</FormItem>
 
 			<div className={styles.footer}>
-				<Button size="l" stretched onClick={handleApply}>
+				<Button data-testid="filters-apply" size="l" stretched onClick={handleApply}>
 					{t.filters.apply}
 				</Button>
 			</div>

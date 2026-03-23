@@ -1,0 +1,131 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ConfirmModal > matches snapshot when open 1`] = `
+<body>
+  <div>
+    <div
+      aria-hidden="false"
+      class="vkuiModalOutlet__host"
+    >
+      <div
+        aria-hidden="true"
+        class="vkuiModalOverlay__host vkuiModalOverlay__nonInteractive vkuiModalOverlay__hostPositionAbsolute vkuiModalOverlay__hostStateEntering"
+      />
+      <div
+        aria-labelledby="_r_0_-label"
+        aria-modal="true"
+        class="vkuiModalPage__host vkuiModalPage__hostMobile vkuiModalPage__hostMobileSafeAreaInsetTop"
+        id="_r_0_"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          class="vkuiModalPage__documentMobile vkuiModalPage__documentStateEntering vkuiModalPage__document vkuiRootComponent__host"
+          role="document"
+          style="--vkui_internal_ModalPageDocument--snapPoint: 50%;"
+        >
+          <div
+            class="vkuiModalPage__children vkuiModalPage__childrenMobile"
+          >
+            <div
+              class="vkuiModalPageContent__host vkuiCustomScrollView__host"
+            >
+              <div
+                class="vkuiModalPageHeader__host vkuiModalPageHeader__hostWithGaps"
+              >
+                <div
+                  class="vkuiInternalModalPageHeader__in vkuiPanelHeader__host vkuiInternalPanelHeader vkuiPanelHeader__android vkuiPanelHeader__trnsp vkuiPanelHeader__static vkuiInternalPanelHeader--static vkuiPanelHeader__noBefore vkuiInternalPanelHeader--no-before vkuiPanelHeader__noAfter vkuiPanelHeader__sizeXNone vkuiPanelHeader__sizeYNone vkuiRootComponent__host"
+                >
+                  <div
+                    class="vkuiPanelHeader__in"
+                    data-onboarding-tooltip-container="fixed"
+                  >
+                    <div
+                      class="vkuiPanelHeader__before vkuiInternalPanelHeader__before"
+                    />
+                    <div
+                      class="vkuiPanelHeader__content"
+                    >
+                      <h2
+                        class="vkuiPanelHeader__contentIn"
+                        id="_r_0_-label"
+                      >
+                        Добавить в избранное?
+                      </h2>
+                    </div>
+                    <div
+                      class="vkuiPanelHeader__after vkuiInternalPanelHeader__after"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="vkuiSeparator__padded vkuiSeparator__appearancePrimary vkuiSeparator__directionHorizontal vkuiRootComponent__host"
+              >
+                <hr
+                  class="vkuiSeparator__in"
+                />
+              </div>
+              <div
+                class="vkui-padding-m vkuiRootComponent__host"
+              >
+                <p
+                  class="vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                >
+                  Фильм «Inception» будет добавлен в ваш список избранного.
+                </p>
+              </div>
+              <div
+                class="vkuiModalPageFooter__host vkuiModalPageFooter__padded vkuiModalPageFooter__hostMobile vkuiRootComponent__host"
+              >
+                <div
+                  class="vkuiModalPageFooter__Separator vkuiSeparator__padded vkuiSeparator__appearancePrimary vkuiSeparator__directionHorizontal vkuiRootComponent__host"
+                >
+                  <hr
+                    class="vkuiSeparator__in"
+                  />
+                </div>
+                <div
+                  class="vkuiButtonGroup__host vkuiButtonGroup__modeHorizontal vkuiButtonGroup__gapM vkuiButtonGroup__stretched vkuiButtonGroup__alignLeft vkuiRootComponent__host"
+                  role="group"
+                >
+                  <button
+                    class="vkuiInternalTappable vkuiButton__host vkuiButton__sizeM vkuiButton__modePrimary vkuiButton__appearanceNegative vkuiButton__sizeYNone vkuiButton__stretched vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+                    type="button"
+                  >
+                    <span
+                      class="vkuiButton__in"
+                    >
+                      <span
+                        class="vkuiButton__content"
+                        data-testid="children"
+                      >
+                        Отмена
+                      </span>
+                    </span>
+                  </button>
+                  <button
+                    class="vkuiInternalTappable vkuiButton__host vkuiButton__sizeM vkuiButton__modePrimary vkuiButton__appearanceAccent vkuiButton__sizeYNone vkuiButton__stretched vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+                    type="button"
+                  >
+                    <span
+                      class="vkuiButton__in"
+                    >
+                      <span
+                        class="vkuiButton__content"
+                        data-testid="children"
+                      >
+                        Подтвердить
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

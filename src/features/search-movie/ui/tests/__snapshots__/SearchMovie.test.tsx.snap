@@ -1,0 +1,90 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchMovie > matches snapshot when empty 1`] = `
+<body>
+  <div>
+    <div
+      class="_container_01831d"
+    >
+      <div
+        data-testid="popover-wrapper"
+      >
+        <div
+          class="_searchInput_01831d vkuiInternalSearch vkuiSearch__host vkuiSearch__sizeYNone vkuiSearch__withPadding vkuiRootComponent__host"
+        >
+          <div
+            class="vkuiSearch__field"
+          >
+            <label
+              class="vkuiSearch__label"
+              for="search-_r_0_"
+            >
+              Search movies...
+            </label>
+            <div
+              class="vkuiSearch__input"
+            >
+              <svg
+                aria-hidden="true"
+                class="vkuiIcon vkuiIcon--16 vkuiIcon--w-16 vkuiIcon--h-16 vkuiIcon--search_outline_16"
+                display="block"
+                fill="none"
+                height="16"
+                style="width: 16px; height: 16px;"
+                viewBox="0 0 16 16"
+                width="16"
+              >
+                <path
+                  d="M6.5 1a5.5 5.5 0 0 1 4.384 8.823l3.895 3.9a.75.75 0 0 1-1.061 1.06l-3.895-3.9A5.5 5.5 0 1 1 6.5 1m0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8"
+                  fill="currentColor"
+                />
+              </svg>
+              <input
+                autocomplete="off"
+                class="vkuiSearch__nativeInput vkuiHeadline__sizeYNone vkuiHeadline__level1 vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                id="search-_r_0_"
+                placeholder="Search movies..."
+                type="search"
+                value=""
+              />
+            </div>
+            <div
+              class="vkuiSearch__controls"
+            >
+              <button
+                class="vkuiSearch__icon vkuiInternalTappable vkuiIconButton__host vkuiIconButton__sizeYNone vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="vkuiVisuallyHidden__host vkuiRootComponent__host"
+                >
+                  Очистить
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="vkuiIcon vkuiIcon--24 vkuiIcon--w-24 vkuiIcon--h-24 vkuiIcon--cancel_24"
+                  display="block"
+                  fill="currentColor"
+                  height="24"
+                  style="width: 24px; height: 24px;"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M7.536 6.264a.9.9 0 0 0-1.272 1.272L10.727 12l-4.463 4.464a.9.9 0 0 0 1.272 1.272L12 13.273l4.464 4.463a.9.9 0 1 0 1.272-1.272L13.273 12l4.463-4.464a.9.9 0 1 0-1.272-1.272L12 10.727z"
+                  />
+                </svg>
+                <span
+                  aria-hidden="true"
+                  class="vkuiTappable__stateLayer vkuiTappable__ripple"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

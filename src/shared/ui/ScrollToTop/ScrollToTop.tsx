@@ -37,11 +37,12 @@ export const ScrollToTop = () => {
 	};
 
 	return (
-		<ScrollArrow
-			direction="up"
+		<div
+			data-testid="scroll-to-top"
 			className={cn(styles.btn, { [styles.visible]: visible })}
 			onClick={handleClick}
-			size="m"
-		/>
+		>
+			<ScrollArrow direction="up" size="m" />
+		</div>
 	);
 };

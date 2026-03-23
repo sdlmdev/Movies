@@ -1,0 +1,408 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CompareModal > matches snapshot when empty 1`] = `
+<body>
+  <div>
+    <div
+      aria-hidden="false"
+      class="vkuiModalOutlet__host"
+    >
+      <div
+        aria-hidden="true"
+        class="vkuiModalOverlay__host vkuiModalOverlay__nonInteractive vkuiModalOverlay__hostPositionAbsolute vkuiModalOverlay__hostStateEntering"
+      />
+      <div
+        aria-labelledby="_r_0_-label"
+        aria-modal="true"
+        class="vkuiModalPage__host vkuiModalPage__hostMobile vkuiModalPage__hostMobileSafeAreaInsetTop"
+        id="_r_0_"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          class="vkuiModalPage__documentMobile vkuiModalPage__documentStateEntering vkuiModalPage__document vkuiRootComponent__host"
+          role="document"
+        >
+          <div
+            class="vkuiModalPage__children vkuiModalPage__childrenMobile"
+          >
+            <div
+              class="vkuiModalPageContent__host vkuiCustomScrollView__host"
+            >
+              <div
+                class="vkuiModalPageHeader__host vkuiModalPageHeader__hostWithGaps"
+              >
+                <div
+                  class="vkuiInternalModalPageHeader__in vkuiPanelHeader__host vkuiInternalPanelHeader vkuiPanelHeader__android vkuiPanelHeader__trnsp vkuiPanelHeader__static vkuiInternalPanelHeader--static vkuiPanelHeader__noBefore vkuiInternalPanelHeader--no-before vkuiPanelHeader__noAfter vkuiPanelHeader__sizeXNone vkuiPanelHeader__sizeYNone vkuiRootComponent__host"
+                >
+                  <div
+                    class="vkuiPanelHeader__in"
+                    data-onboarding-tooltip-container="fixed"
+                  >
+                    <div
+                      class="vkuiPanelHeader__before vkuiInternalPanelHeader__before"
+                    />
+                    <div
+                      class="vkuiPanelHeader__content"
+                    >
+                      <h2
+                        class="vkuiPanelHeader__contentIn"
+                        id="_r_0_-label"
+                      >
+                        Comparison
+                      </h2>
+                    </div>
+                    <div
+                      class="vkuiPanelHeader__after vkuiInternalPanelHeader__after"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="vkuiSeparator__padded vkuiSeparator__appearancePrimary vkuiSeparator__directionHorizontal vkuiRootComponent__host"
+              >
+                <hr
+                  class="vkuiSeparator__in"
+                />
+              </div>
+              <div
+                class="vkuiPlaceholder__host vkuiPlaceholder__withPadding vkuiRootComponent__host"
+              >
+                <span
+                  class="vkuiPlaceholder__title vkuiTitle__sizeYNone vkuiTitle__level2 vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight2 vkuiRootComponent__host"
+                >
+                  Your compare list is empty
+                </span>
+                <span
+                  class="vkuiPlaceholder__description vkuiHeadline__sizeYNone vkuiHeadline__level1 vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                >
+                  Add movies to compare
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CompareModal > matches snapshot with movies 1`] = `
+<body>
+  <div>
+    <div
+      aria-hidden="false"
+      class="vkuiModalOutlet__host"
+    >
+      <div
+        aria-hidden="true"
+        class="vkuiModalOverlay__host vkuiModalOverlay__nonInteractive vkuiModalOverlay__hostPositionAbsolute vkuiModalOverlay__hostStateEntering"
+      />
+      <div
+        aria-labelledby="_r_1_-label"
+        aria-modal="true"
+        class="vkuiModalPage__host vkuiModalPage__hostMobile vkuiModalPage__hostMobileSafeAreaInsetTop"
+        id="_r_1_"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          class="vkuiModalPage__documentMobile vkuiModalPage__documentStateEntering vkuiModalPage__document vkuiRootComponent__host"
+          role="document"
+        >
+          <div
+            class="vkuiModalPage__children vkuiModalPage__childrenMobile"
+          >
+            <div
+              class="vkuiModalPageContent__host vkuiCustomScrollView__host"
+            >
+              <div
+                class="vkuiModalPageHeader__host vkuiModalPageHeader__hostWithGaps"
+              >
+                <div
+                  class="vkuiInternalModalPageHeader__in vkuiPanelHeader__host vkuiInternalPanelHeader vkuiPanelHeader__android vkuiPanelHeader__trnsp vkuiPanelHeader__static vkuiInternalPanelHeader--static vkuiPanelHeader__noBefore vkuiInternalPanelHeader--no-before vkuiPanelHeader__sizeXNone vkuiPanelHeader__sizeYNone vkuiRootComponent__host"
+                >
+                  <div
+                    class="vkuiPanelHeader__in"
+                    data-onboarding-tooltip-container="fixed"
+                  >
+                    <div
+                      class="vkuiPanelHeader__before vkuiInternalPanelHeader__before"
+                    />
+                    <div
+                      class="vkuiPanelHeader__content"
+                    >
+                      <h2
+                        class="vkuiPanelHeader__contentIn"
+                        id="_r_1_-label"
+                      >
+                        Comparison
+                      </h2>
+                    </div>
+                    <div
+                      class="vkuiPanelHeader__after vkuiInternalPanelHeader__after"
+                    >
+                      <button
+                        class="vkuiInternalTappable vkuiButton__host vkuiButton__sizeS vkuiButton__modeTertiary vkuiButton__appearanceNegative vkuiButton__sizeYNone vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+                        type="button"
+                      >
+                        <span
+                          class="vkuiButton__in"
+                        >
+                          <span
+                            class="vkuiButton__before"
+                            data-testid="before"
+                            role="presentation"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-20 vkuiIcon--delete_outline_20"
+                              display="block"
+                              fill="currentColor"
+                              height="20"
+                              style="width: 20px; height: 20px;"
+                              viewBox="0 0 20 20"
+                              width="20"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M6.837 4H2.75a.75.75 0 0 0 0 1.5h.545l.907 9.248c.051.523.094.96.157 1.314.066.37.163.711.353 1.028a2.9 2.9 0 0 0 1.247 1.131c.334.158.682.222 1.058.25.36.029.797.029 1.323.029h3.32c.526 0 .964 0 1.323-.028.376-.03.724-.093 1.058-.25a2.9 2.9 0 0 0 1.247-1.132c.19-.317.287-.657.353-1.028.063-.355.106-.79.157-1.314l.907-9.248h.545a.75.75 0 0 0 0-1.5h-4.087a3.25 3.25 0 0 0-6.326 0m1.581 0h3.164a1.751 1.751 0 0 0-3.164 0m6.78 1.5H4.802l.89 9.072c.054.56.091.938.143 1.228.05.281.104.422.162.52a1.4 1.4 0 0 0 .603.546c.102.048.248.088.533.11.294.024.673.024 1.235.024h3.262c.562 0 .941 0 1.235-.023.285-.023.43-.063.533-.111a1.4 1.4 0 0 0 .603-.547c.058-.097.112-.238.162-.52.052-.29.09-.667.144-1.226l.89-9.073Zm-2.886 2.002a.75.75 0 0 1 .685.81l-.5 6.003a.75.75 0 0 1-1.494-.124l.5-6.003a.75.75 0 0 1 .81-.686Zm-4.624 0a.75.75 0 0 1 .81.686l.5 6.002a.75.75 0 0 1-1.495.125l-.5-6.003a.75.75 0 0 1 .685-.81"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="vkuiButton__content"
+                            data-testid="children"
+                          >
+                            Clear all
+                          </span>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="vkuiSeparator__padded vkuiSeparator__appearancePrimary vkuiSeparator__directionHorizontal vkuiRootComponent__host"
+              >
+                <hr
+                  class="vkuiSeparator__in"
+                />
+              </div>
+              <div
+                class="_body_ce18c6"
+              >
+                <div
+                  class="_posters_ce18c6 _postersPair_ce18c6"
+                >
+                  <div
+                    class="_posterSlot_ce18c6"
+                  >
+                    <button
+                      class="_removeBtn_ce18c6 vkuiInternalTappable vkuiIconButton__host vkuiIconButton__sizeYNone vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+                      type="button"
+                    >
+                      <span
+                        class="vkuiVisuallyHidden__host vkuiRootComponent__host"
+                      >
+                        Remove
+                      </span>
+                      <svg
+                        aria-hidden="true"
+                        class="vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-20 vkuiIcon--cancel_20"
+                        display="block"
+                        fill="none"
+                        height="20"
+                        style="width: 20px; height: 20px;"
+                        viewBox="0 0 20 20"
+                        width="20"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4.72 4.72a.75.75 0 0 1 1.06 0L10 8.94l4.22-4.22a.75.75 0 1 1 1.06 1.06L11.06 10l4.22 4.22a.75.75 0 1 1-1.06 1.06L10 11.06l-4.22 4.22a.75.75 0 0 1-1.06-1.06L8.94 10 4.72 5.78a.75.75 0 0 1 0-1.06"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                      <span
+                        aria-hidden="true"
+                        class="vkuiTappable__stateLayer vkuiTappable__ripple"
+                      />
+                    </button>
+                    <div
+                      class="_posterImage_ce18c6 vkuiImage__host vkuiImageBase__host vkuiClickable__host vkuiRootComponent__host"
+                      style="width: 100px; height: 100px; --vkui_internal--Image_border_radius: 10px;"
+                    >
+                      <img
+                        alt="Inception"
+                        class="vkuiImageBase__img vkuiImageBase__imgObjectFitCover"
+                        height="100"
+                        src="poster-a.jpg"
+                        width="100"
+                      />
+                      <div
+                        aria-hidden="true"
+                        class="vkuiImageBase__border"
+                      />
+                    </div>
+                    <span
+                      class="_posterTitle_ce18c6 vkuiHeadline__sizeYNone vkuiHeadline__level1 vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight2 vkuiRootComponent__host"
+                    >
+                      Inception
+                    </span>
+                  </div>
+                  <div
+                    class="_posterSlot_ce18c6"
+                  >
+                    <button
+                      class="_removeBtn_ce18c6 vkuiInternalTappable vkuiIconButton__host vkuiIconButton__sizeYNone vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host"
+                      type="button"
+                    >
+                      <span
+                        class="vkuiVisuallyHidden__host vkuiRootComponent__host"
+                      >
+                        Remove
+                      </span>
+                      <svg
+                        aria-hidden="true"
+                        class="vkuiIcon vkuiIcon--20 vkuiIcon--w-20 vkuiIcon--h-20 vkuiIcon--cancel_20"
+                        display="block"
+                        fill="none"
+                        height="20"
+                        style="width: 20px; height: 20px;"
+                        viewBox="0 0 20 20"
+                        width="20"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4.72 4.72a.75.75 0 0 1 1.06 0L10 8.94l4.22-4.22a.75.75 0 1 1 1.06 1.06L11.06 10l4.22 4.22a.75.75 0 1 1-1.06 1.06L10 11.06l-4.22 4.22a.75.75 0 0 1-1.06-1.06L8.94 10 4.72 5.78a.75.75 0 0 1 0-1.06"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                      <span
+                        aria-hidden="true"
+                        class="vkuiTappable__stateLayer vkuiTappable__ripple"
+                      />
+                    </button>
+                    <div
+                      class="_posterImage_ce18c6 vkuiImage__host vkuiImageBase__host vkuiClickable__host vkuiRootComponent__host"
+                      style="width: 100px; height: 100px; --vkui_internal--Image_border_radius: 10px;"
+                    >
+                      <img
+                        alt="Matrix"
+                        class="vkuiImageBase__img vkuiImageBase__imgObjectFitCover"
+                        height="100"
+                        src="poster-b.jpg"
+                        width="100"
+                      />
+                      <div
+                        aria-hidden="true"
+                        class="vkuiImageBase__border"
+                      />
+                    </div>
+                    <span
+                      class="_posterTitle_ce18c6 vkuiHeadline__sizeYNone vkuiHeadline__level1 vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight2 vkuiRootComponent__host"
+                    >
+                      Matrix
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="_separator_ce18c6 vkuiSeparator__appearancePrimary vkuiSeparator__directionHorizontal vkuiRootComponent__host"
+                >
+                  <hr
+                    class="vkuiSeparator__in"
+                  />
+                </div>
+                <div
+                  class="_table_ce18c6"
+                >
+                  <div
+                    class="_row_ce18c6 _rowPair_ce18c6"
+                  >
+                    <span
+                      class="_cellLabel_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                    >
+                      Year
+                    </span>
+                    <span
+                      class="_cellValue_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                    >
+                      2010
+                    </span>
+                    <span
+                      class="_cellValue_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                    >
+                      1999
+                    </span>
+                  </div>
+                  <div
+                    class="_row_ce18c6 _rowPair_ce18c6"
+                  >
+                    <span
+                      class="_cellLabel_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                    >
+                      Rating
+                    </span>
+                    <span
+                      class="_cellValue_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                    >
+                      8.8
+                    </span>
+                    <span
+                      class="_cellValue_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                    >
+                      8.7
+                    </span>
+                  </div>
+                  <div
+                    class="_row_ce18c6 _rowPair_ce18c6"
+                  >
+                    <span
+                      class="_cellLabel_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                    >
+                      Genre
+                    </span>
+                    <span
+                      class="_cellValue_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                    >
+                      Action
+                    </span>
+                    <span
+                      class="_cellValue_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                    >
+                      Sci-Fi
+                    </span>
+                  </div>
+                  <div
+                    class="_row_ce18c6 _rowPair_ce18c6"
+                  >
+                    <span
+                      class="_cellLabel_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight3 vkuiRootComponent__host"
+                    >
+                      Duration
+                    </span>
+                    <span
+                      class="_cellValue_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                    >
+                      2 h 28 m
+                    </span>
+                    <span
+                      class="_cellValue_ce18c6 vkuiSubhead__host vkuiSubhead__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+                    >
+                      2 h 16 m
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

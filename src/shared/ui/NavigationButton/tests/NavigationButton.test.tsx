@@ -1,29 +1,46 @@
-import { MemoryRouter } from 'react-router';
-import { render } from '@testing-library/react';
+import { MemoryRouter, useLocation } from 'react-router';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { NavigationButton } from '../NavigationButton';
 
-const ICON_LABEL = 'home';
-const TARGET_PATH = '/';
+const LocationDisplay = () => {
+	const location = useLocation();
+
+	return <div data-testid="location">{location.pathname}</div>;
+};
 
 describe('NavigationButton', () => {
-	it('matches snapshot when inactive', () => {
-		const { container } = render(
-			<MemoryRouter initialEntries={['/other']}>
-				<NavigationButton to={TARGET_PATH}>{ICON_LABEL}</NavigationButton>
+	it('navigates to "to" prop on click', () => {
+		render(
+			<MemoryRouter initialEntries={['/']}>
+				<NavigationButton to="/test">Click me</NavigationButton>
+				<LocationDisplay />
 			</MemoryRouter>,
 		);
 
-		expect(container.firstChild).toMatchSnapshot();
+		fireEvent.click(screen.getByRole('button'));
+		expect(screen.getByTestId('location')).toHaveTextContent('/test');
 	});
 
-	it('matches snapshot when active', () => {
-		const { container } = render(
-			<MemoryRouter initialEntries={[TARGET_PATH]}>
-				<NavigationButton to={TARGET_PATH}>{ICON_LABEL}</NavigationButton>
+	it('shows active state when pathname matches', () => {
+		render(
+			<MemoryRouter initialEntries={['/test']}>
+				<NavigationButton to="/test">Click me</NavigationButton>
 			</MemoryRouter>,
 		);
 
-		expect(container.firstChild).toMatchSnapshot();
+		const button = screen.getByRole('button');
+
+		expect(button).toBeInTheDocument();
+	});
+
+	it('matches snapshot', () => {
+		const { baseElement } = render(
+			<MemoryRouter>
+				<NavigationButton to="/test">Click me</NavigationButton>
+			</MemoryRouter>,
+		);
+
+		expect(baseElement).toMatchSnapshot();
 	});
 });

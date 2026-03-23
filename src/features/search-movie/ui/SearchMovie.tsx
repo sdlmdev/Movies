@@ -80,6 +80,7 @@ export const SearchMovie = () => {
 					) : (
 						<Virtuoso
 							style={{ height: '400px', width: '100%' }}
+							data-testid="search-results"
 							data={results}
 							itemContent={(_, movie) => (
 								<MovieSearchCell key={movie.id} movie={movie} onClick={handleResultClick} />

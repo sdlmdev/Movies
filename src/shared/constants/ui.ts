@@ -20,7 +20,7 @@ export const GRID_CONFIG = {
 export const RATING_PRECISION = 1;
 
 export const UI_CHARS = {
-	RANGE_SEPARATOR: ' — ',
+	RANGE_SEPARATOR: ' - ',
 	POINT_SEPARATOR: ' • ',
 	MIDDLE_DOT: ' · ',
 	COMMA: ', ',

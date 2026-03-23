@@ -1,0 +1,81 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MovieCard > matches snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="_card_118849 vkui-padding-xl vkuiRootComponent__host"
+    >
+      <div
+        class="vkuiImage__host vkuiImageBase__host vkuiClickable__host vkuiRootComponent__host"
+        style="width: 230px; height: 230px; --vkui_internal--Image_border_radius: 10px;"
+      >
+        <img
+          alt="Inception"
+          class="vkuiImageBase__img vkuiImageBase__imgObjectFitCover"
+          height="230"
+          src="poster.jpg"
+          width="230"
+        />
+        <div
+          class="vkuiImageBase__children"
+        >
+          <div
+            class="vkuiImageBadge__host vkuiImageBaseBadge__host vkuiImageBaseBadge__backgroundStroke vkuiRootComponent__host"
+          >
+            <div
+              data-testid="rating-badge"
+            >
+              kp
+              : 
+              8.8
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="vkuiImageBase__border"
+        />
+      </div>
+      <div
+        class="vkui-inline-size vkuiRootComponent__host"
+        style="--vkui_internal--inline-size: 230px;"
+      >
+        <span
+          class="vkuiTitle__sizeYNone vkuiTitle__level3 vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"
+        >
+          <span
+            class="vkuiEllipsisText__host vkuiRootComponent__host"
+            title="Inception"
+          >
+            <span
+              class="vkuiEllipsisText__content"
+            >
+              Inception
+            </span>
+          </span>
+        </span>
+        <span
+          class="vkuiHeadline__sizeYNone vkuiHeadline__level2 vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight2 vkuiRootComponent__host"
+        >
+          2010
+        </span>
+        <span
+          class="vkuiHeadline__sizeYNone vkuiHeadline__level2 vkuiTypography__host vkuiTypography__normalize vkuiTypography__weight2 vkuiRootComponent__host"
+        >
+          <span
+            class="vkuiEllipsisText__host vkuiRootComponent__host"
+            title="Action, Sci-Fi"
+          >
+            <span
+              class="vkuiEllipsisText__content"
+            >
+              Action, Sci-Fi
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+`;

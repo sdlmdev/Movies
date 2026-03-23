@@ -13,7 +13,11 @@ export const LangSwitcher = () => {
 	const displayLang = i18n.language.toUpperCase();
 
 	return (
-		<PanelHeaderButton onClick={toggleLanguage} aria-label="switch language">
+		<PanelHeaderButton
+			onClick={toggleLanguage}
+			aria-label="switch language"
+			data-testid="lang-switcher"
+		>
 			{displayLang}
 		</PanelHeaderButton>
 	);

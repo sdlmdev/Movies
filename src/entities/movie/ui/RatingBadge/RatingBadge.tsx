@@ -22,6 +22,7 @@ export const RatingBadge = ({ rating, size = 's', provider }: RatingBadgeProps) 
 
 	return (
 		<Counter
+			data-testid="rating-badge"
 			size={size}
 			className={cn({
 				[styles.high]: ratingData.value >= RATING_HIGH_THRESHOLD,
