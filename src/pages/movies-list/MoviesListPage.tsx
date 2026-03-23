@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useNavigate } from 'react-router';
 import { Button, Group, Header, Placeholder } from '@vkontakte/vkui';
 import { MovieVirtualGrid } from '@entities/movie';
@@ -26,11 +25,11 @@ const MoviesListPage = () => {
 		isError,
 	} = useMoviesList(filters);
 
-	const handleEndReached = useCallback(() => {
+	const handleEndReached = () => {
 		if (hasNextPage && !isFetchingNextPage) {
 			void fetchNextPage();
 		}
-	}, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+	};
 
 	const showSkeleton = isLoading || (isFetching && !isFetchingNextPage);
 

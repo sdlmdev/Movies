@@ -12,7 +12,7 @@ export const Logo = () => {
 
 	return (
 		<Link to={{ pathname: getRouteMain(), search }} className={cn(styles.logo)}>
-			<Flex gap="s" align="center">
+			<Flex gap="s" align="center" noWrap>
 				<Icon32VideoSquareOutline />
 				<Text>{t.common.movies}</Text>
 			</Flex>

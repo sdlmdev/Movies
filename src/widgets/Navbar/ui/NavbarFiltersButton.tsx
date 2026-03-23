@@ -10,7 +10,7 @@ import styles from './NavbarFiltersButton.module.scss';
 
 const MAX_RATING = 10;
 
-export const NavbarFiltersButton = ({ onClick }: { onClick: () => void }) => {
+export const NavbarFiltersButton = ({ onClick }: { onClick: VoidFunction }) => {
 	const isMainPage = useMatch(getRouteMain());
 	const isFavoritesPage = useMatch(getRouteFavorites());
 	const t = useDictionary();
@@ -37,7 +37,7 @@ export const NavbarFiltersModalContainer = ({
 	onClose,
 }: {
 	isOpen: boolean;
-	onClose: () => void;
+	onClose: VoidFunction;
 }) => {
 	const {
 		filters,

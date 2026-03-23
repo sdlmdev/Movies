@@ -5,7 +5,6 @@ import {
 	API_FIELDS,
 	API_LIMITS,
 	API_PARAMS,
-	API_QUERY_DELIMITERS,
 	API_QUERY_PREFIXES,
 	FILTER_FIELDS,
 	SORT_DIRECTION,
@@ -13,6 +12,7 @@ import {
 	SORT_ORDERS,
 } from '@shared/constants/api';
 import { CURRENT_YEAR } from '@shared/constants/common';
+import { UI_CHARS } from '@shared/constants/ui';
 import type { Movie, MovieFilters, RatingProvider } from '../model/types';
 import { DEFAULT_RATING_PROVIDER } from '../model/types';
 
@@ -27,7 +27,7 @@ export interface MovieApiParams {
 	[API_PARAMS.YEAR]?: string;
 	[API_PARAMS.SORT_FIELD]?: string;
 	[API_PARAMS.SORT_TYPE]?: string;
-	[key: string]: unknown; // Для динамических ключей рейтинга (rating.kp и т.д.)
+	[key: string]: unknown;
 }
 
 export const movieApi = {
@@ -83,7 +83,7 @@ export const movieApi = {
 
 		if (ratingFrom !== undefined || ratingTo !== undefined) {
 			params[`${API_QUERY_PREFIXES.RATING}${provider}`] = `${ratingFrom ?? 0}${
-				API_QUERY_DELIMITERS.RANGE
+				UI_CHARS.DASH
 			}${ratingTo ?? API_LIMITS.MAX_RATING}`;
 		}
 
@@ -91,7 +91,7 @@ export const movieApi = {
 			const from = yearFrom ?? API_LIMITS.MIN_YEAR;
 			const to = yearTo ?? CURRENT_YEAR;
 
-			params[API_PARAMS.YEAR] = `${from}${API_QUERY_DELIMITERS.RANGE}${to}`;
+			params[API_PARAMS.YEAR] = `${from}${UI_CHARS.DASH}${to}`;
 		}
 
 		if (sortBy) {

@@ -259,13 +259,13 @@ const MovieDetailPage = () => {
 				</Group>
 			)}
 
-			{watchability?.items && watchability.items.length && (
+			{watchability?.items && watchability.items.length > 0 && (
 				<WatchabilityHorizontalList items={watchability.items} />
 			)}
 
-			{persons && persons.length && <PersonHorizontalList persons={persons} />}
+			{persons && persons.length > 0 && <PersonHorizontalList persons={persons} />}
 
-			{similarMovies && similarMovies.length && (
+			{similarMovies && similarMovies.length > 0 && (
 				<MovieHorizontalList
 					movies={similarMovies}
 					onMovieClick={async (m) => navigate(getRouteMovie(m.id))}

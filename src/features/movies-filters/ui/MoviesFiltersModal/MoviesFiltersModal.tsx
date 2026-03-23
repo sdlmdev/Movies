@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Icon20DeleteOutline } from '@vkontakte/icons';
 import {
 	Button,
@@ -99,7 +99,7 @@ export const MoviesFiltersModal = ({
 		sortOrder,
 	]);
 
-	const handleApply = useCallback(() => {
+	const handleApply = () => {
 		onApply({
 			genres: localGenres.length > 0 ? localGenres : undefined,
 			countries: localCountries.length > 0 ? localCountries : undefined,
@@ -115,24 +115,12 @@ export const MoviesFiltersModal = ({
 		});
 
 		onClose();
-	}, [
-		localGenres,
-		localCountries,
-		localIsSeries,
-		localAgeRating,
-		localRating,
-		localYear,
-		localProvider,
-		localSortBy,
-		localSortOrder,
-		onApply,
-		onClose,
-	]);
+	};
 
-	const handleReset = useCallback(() => {
+	const handleReset = () => {
 		onReset();
 		onClose();
-	}, [onReset, onClose]);
+	};
 
 	const selectedGenres = genreOptions.filter((opt) => localGenres.includes(opt.value));
 	const selectedCountries = countryOptions.filter((opt) => localCountries.includes(opt.value));
@@ -192,7 +180,7 @@ export const MoviesFiltersModal = ({
 			<FormItem top={t.filters.ageRating}>
 				<ChipsSelect
 					value={selectedAgeRating}
-					onChange={(opts) => setLocalAgeRating(opts.map((o) => o.value as string))}
+					onChange={(opts) => setLocalAgeRating(opts.map((o) => o.value))}
 					options={ageRatingOptions}
 					placeholder={t.filters.selectAgeRating}
 				/>

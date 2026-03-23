@@ -21,20 +21,17 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
 
 	const [storedValue, setStoredValue] = useState<T>(getStoredValue);
 
-	const setValue = useCallback(
-		(value: T | ((val: T) => T)) => {
-			try {
-				const valueToStore = value instanceof Function ? value(getStoredValue()) : value;
-				window.localStorage.setItem(key, JSON.stringify(valueToStore));
-				setStoredValue(valueToStore);
+	const setValue = (value: T | ((val: T) => T)) => {
+		try {
+			const valueToStore = value instanceof Function ? value(getStoredValue()) : value;
+			window.localStorage.setItem(key, JSON.stringify(valueToStore));
+			setStoredValue(valueToStore);
 
-				window.dispatchEvent(new Event('local-storage-sync'));
-			} catch (error) {
-				console.error(`Error saving to localStorage key="${key}":`, error);
-			}
-		},
-		[key, getStoredValue],
-	);
+			window.dispatchEvent(new Event('local-storage-sync'));
+		} catch (error) {
+			console.error(`Error saving to localStorage key="${key}":`, error);
+		}
+	};
 
 	useEffect(() => {
 		const handleSync = () => {

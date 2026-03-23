@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useSearchParams } from 'react-router';
 import type {
 	MovieFilters,
@@ -6,25 +5,16 @@ import type {
 	SortField,
 	SortOrder,
 } from '@entities/movie/model/types';
-import { API_LIMITS, DEFAULT_RATING_PROVIDER } from '@shared/constants/api';
+import {
+	API_LIMITS,
+	DEFAULT_RATING_PROVIDER,
+	RATING_PROVIDERS,
+	SEARCH_PARAMS,
+	SORT_FIELDS,
+} from '@shared/constants/api';
 
-const VALID_PROVIDERS: Array<RatingProvider> = ['kp', 'imdb', 'tmdb', 'filmCritics'];
-const VALID_SORT_FIELDS: Array<SortField> = ['rating', 'year', 'duration'];
-
-const PARAMS = {
-	query: 'query',
-	genres: 'genres',
-	countries: 'countries',
-	isSeries: 'isSeries',
-	ageRating: 'ageRating',
-	ratingFrom: 'ratingFrom',
-	ratingTo: 'ratingTo',
-	yearFrom: 'yearFrom',
-	yearTo: 'yearTo',
-	ratingProvider: 'ratingProvider',
-	sortBy: 'sortBy',
-	sortOrder: 'sortOrder',
-} as const;
+const VALID_PROVIDERS: Array<RatingProvider> = [...RATING_PROVIDERS];
+const VALID_SORT_FIELDS: Array<SortField> = Object.values(SORT_FIELDS);
 
 const parseNumber = (value: string | null): number | undefined => {
 	if (!value) {
@@ -59,19 +49,19 @@ const parseSortOrder = (value: string | null): SortOrder => {
 export const useMoviesFilters = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 
-	const query = searchParams.get(PARAMS.query) || undefined;
-	const genres = searchParams.getAll(PARAMS.genres);
-	const countries = searchParams.getAll(PARAMS.countries);
-	const isSeries = searchParams.getAll(PARAMS.isSeries);
-	const ageRating = searchParams.getAll(PARAMS.ageRating);
+	const query = searchParams.get(SEARCH_PARAMS.QUERY) || undefined;
+	const genres = searchParams.getAll(SEARCH_PARAMS.GENRES);
+	const countries = searchParams.getAll(SEARCH_PARAMS.COUNTRIES);
+	const isSeries = searchParams.getAll(SEARCH_PARAMS.IS_SERIES);
+	const ageRating = searchParams.getAll(SEARCH_PARAMS.AGE_RATING);
 
-	const ratingFrom = parseNumber(searchParams.get(PARAMS.ratingFrom));
-	const ratingTo = parseNumber(searchParams.get(PARAMS.ratingTo));
-	const yearFrom = parseNumber(searchParams.get(PARAMS.yearFrom));
-	const yearTo = parseNumber(searchParams.get(PARAMS.yearTo));
-	const ratingProvider = parseProvider(searchParams.get(PARAMS.ratingProvider));
-	const sortBy = parseSortField(searchParams.get(PARAMS.sortBy));
-	const sortOrder = parseSortOrder(searchParams.get(PARAMS.sortOrder));
+	const ratingFrom = parseNumber(searchParams.get(SEARCH_PARAMS.RATING_FROM));
+	const ratingTo = parseNumber(searchParams.get(SEARCH_PARAMS.RATING_TO));
+	const yearFrom = parseNumber(searchParams.get(SEARCH_PARAMS.YEAR_FROM));
+	const yearTo = parseNumber(searchParams.get(SEARCH_PARAMS.YEAR_TO));
+	const ratingProvider = parseProvider(searchParams.get(SEARCH_PARAMS.RATING_PROVIDER));
+	const sortBy = parseSortField(searchParams.get(SEARCH_PARAMS.SORT_BY));
+	const sortOrder = parseSortOrder(searchParams.get(SEARCH_PARAMS.SORT_ORDER));
 
 	const filters: Omit<MovieFilters, 'page' | 'limit'> = {
 		...(query && { query }),
@@ -99,85 +89,82 @@ export const useMoviesFilters = () => {
 		(ratingProvider !== DEFAULT_RATING_PROVIDER ? 1 : 0) +
 		(sortBy !== undefined ? 1 : 0);
 
-	const setFilters = useCallback(
-		(newFilters: Omit<MovieFilters, 'page' | 'limit'>) => {
-			setSearchParams(
-				(prev) => {
-					const next = new URLSearchParams(prev);
+	const setFilters = (newFilters: Omit<MovieFilters, 'page' | 'limit'>) => {
+		setSearchParams(
+			(prev) => {
+				const next = new URLSearchParams(prev);
 
-					if (newFilters.query) {
-						next.set(PARAMS.query, newFilters.query);
-					} else {
-						next.delete(PARAMS.query);
-					}
+				if (newFilters.query) {
+					next.set(SEARCH_PARAMS.QUERY, newFilters.query);
+				} else {
+					next.delete(SEARCH_PARAMS.QUERY);
+				}
 
-					next.delete(PARAMS.genres);
-					newFilters.genres?.forEach((g) => next.append(PARAMS.genres, g));
+				next.delete(SEARCH_PARAMS.GENRES);
+				newFilters.genres?.forEach((g) => next.append(SEARCH_PARAMS.GENRES, g));
 
-					next.delete(PARAMS.countries);
-					newFilters.countries?.forEach((c) => next.append(PARAMS.countries, c));
+				next.delete(SEARCH_PARAMS.COUNTRIES);
+				newFilters.countries?.forEach((c) => next.append(SEARCH_PARAMS.COUNTRIES, c));
 
-					next.delete(PARAMS.isSeries);
-					newFilters.isSeries?.forEach((s) => next.append(PARAMS.isSeries, s));
+				next.delete(SEARCH_PARAMS.IS_SERIES);
+				newFilters.isSeries?.forEach((s) => next.append(SEARCH_PARAMS.IS_SERIES, s));
 
-					next.delete(PARAMS.ageRating);
-					newFilters.ageRating?.forEach((r) => next.append(PARAMS.ageRating, r));
+				next.delete(SEARCH_PARAMS.AGE_RATING);
+				newFilters.ageRating?.forEach((r) => next.append(SEARCH_PARAMS.AGE_RATING, r));
 
-					if (newFilters.ratingFrom !== undefined) {
-						next.set(PARAMS.ratingFrom, String(newFilters.ratingFrom));
-					} else {
-						next.delete(PARAMS.ratingFrom);
-					}
+				if (newFilters.ratingFrom !== undefined) {
+					next.set(SEARCH_PARAMS.RATING_FROM, String(newFilters.ratingFrom));
+				} else {
+					next.delete(SEARCH_PARAMS.RATING_FROM);
+				}
 
-					if (newFilters.ratingTo !== undefined) {
-						next.set(PARAMS.ratingTo, String(newFilters.ratingTo));
-					} else {
-						next.delete(PARAMS.ratingTo);
-					}
+				if (newFilters.ratingTo !== undefined) {
+					next.set(SEARCH_PARAMS.RATING_TO, String(newFilters.ratingTo));
+				} else {
+					next.delete(SEARCH_PARAMS.RATING_TO);
+				}
 
-					if (newFilters.yearFrom !== undefined) {
-						next.set(PARAMS.yearFrom, String(newFilters.yearFrom));
-					} else {
-						next.delete(PARAMS.yearFrom);
-					}
+				if (newFilters.yearFrom !== undefined) {
+					next.set(SEARCH_PARAMS.YEAR_FROM, String(newFilters.yearFrom));
+				} else {
+					next.delete(SEARCH_PARAMS.YEAR_FROM);
+				}
 
-					if (newFilters.yearTo !== undefined) {
-						next.set(PARAMS.yearTo, String(newFilters.yearTo));
-					} else {
-						next.delete(PARAMS.yearTo);
-					}
+				if (newFilters.yearTo !== undefined) {
+					next.set(SEARCH_PARAMS.YEAR_TO, String(newFilters.yearTo));
+				} else {
+					next.delete(SEARCH_PARAMS.YEAR_TO);
+				}
 
-					const provider = newFilters.ratingProvider ?? DEFAULT_RATING_PROVIDER;
+				const provider = newFilters.ratingProvider ?? DEFAULT_RATING_PROVIDER;
 
-					if (provider !== DEFAULT_RATING_PROVIDER) {
-						next.set(PARAMS.ratingProvider, provider);
-					} else {
-						next.delete(PARAMS.ratingProvider);
-					}
+				if (provider !== DEFAULT_RATING_PROVIDER) {
+					next.set(SEARCH_PARAMS.RATING_PROVIDER, provider);
+				} else {
+					next.delete(SEARCH_PARAMS.RATING_PROVIDER);
+				}
 
-					if (newFilters.sortBy) {
-						next.set(PARAMS.sortBy, newFilters.sortBy);
-					} else {
-						next.delete(PARAMS.sortBy);
-					}
+				if (newFilters.sortBy) {
+					next.set(SEARCH_PARAMS.SORT_BY, newFilters.sortBy);
+				} else {
+					next.delete(SEARCH_PARAMS.SORT_BY);
+				}
 
-					if (newFilters.sortOrder && newFilters.sortOrder !== 'desc') {
-						next.set(PARAMS.sortOrder, newFilters.sortOrder);
-					} else {
-						next.delete(PARAMS.sortOrder);
-					}
+				if (newFilters.sortOrder && newFilters.sortOrder !== 'desc') {
+					next.set(SEARCH_PARAMS.SORT_ORDER, newFilters.sortOrder);
+				} else {
+					next.delete(SEARCH_PARAMS.SORT_ORDER);
+				}
 
-					return next;
-				},
-				{ replace: true },
-			);
-		},
-		[setSearchParams],
-	);
+				return next;
+			},
+			{ replace: true },
+		);
+	};
 
-	const resetFilters = useCallback(() => {
+	const resetFilters = () => {
 		setSearchParams({}, { replace: true });
-	}, [setSearchParams]);
+	};
 
 	return {
 		filters,

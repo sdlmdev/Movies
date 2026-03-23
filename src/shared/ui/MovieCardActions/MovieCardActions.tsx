@@ -14,6 +14,9 @@ interface MovieCardActionsProps {
 	movie: Movie;
 }
 
+const activeColor = 'var(--vkui--color_accent_red)';
+const inactiveColor = 'white';
+
 export const MovieCardActions = ({ movie }: MovieCardActionsProps) => {
 	const t = useDictionary();
 	const { isFavorite, requestAddToFavorites, removeFromFavorites } = useFavorites();
@@ -21,9 +24,6 @@ export const MovieCardActions = ({ movie }: MovieCardActionsProps) => {
 
 	const favorite = isFavorite(movie.id);
 	const inCompare = isInCompare(movie.id);
-
-	const activeColor = 'var(--vkui--color_accent_red)';
-	const inactiveColor = 'white';
 
 	const handleFavoriteClick = (e: MouseEvent<HTMLElement>) => {
 		e.stopPropagation();

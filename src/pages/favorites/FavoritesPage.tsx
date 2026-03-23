@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { Icon56BookmarkOutline } from '@vkontakte/icons';
 import { Group, Header, Placeholder } from '@vkontakte/vkui';
@@ -17,129 +16,77 @@ import { useMoviesFilters } from '../movies-list/model/useMoviesFilters';
 
 type FavoritesFilters = Omit<ReturnType<typeof useMoviesFilters>['filters'], 'page' | 'limit'>;
 
-type LocalFilterOp =
-	| { type: 'query'; q: string }
-	| { type: 'genres'; genres: Array<string> }
-	| { type: 'countries'; countries: Array<string> }
-	| { type: 'isSeries'; value: string }
-	| { type: 'ageRating'; values: Array<string> }
-	| { type: 'rating'; from?: number; to?: number }
-	| { type: 'year'; from?: number; to?: number };
-
-const buildLocalFilterOps = (filters: FavoritesFilters): Array<LocalFilterOp> => {
-	const ops: Array<LocalFilterOp> = [];
-
+const movieMatchesFilters = (
+	movie: Movie,
+	filters: FavoritesFilters,
+	ratingProvider: RatingProvider,
+): boolean => {
 	if (filters.query) {
-		ops.push({ type: 'query', q: filters.query.toLowerCase() });
+		const q = filters.query.toLowerCase();
+		const mName = movie.name?.toLowerCase() || '';
+		const altName = movie.alternativeName?.toLowerCase() || '';
+
+		if (!mName.includes(q) && !altName.includes(q)) {
+			return false;
+		}
 	}
 
 	if (filters.genres && filters.genres.length > 0) {
-		ops.push({
-			type: 'genres',
-			genres: filters.genres.map((g) => g.toLowerCase()),
-		});
+		const movieGenres = movie.genres?.map((g) => g.name.toLowerCase()) || [];
+		const someMatch = filters.genres.some((g) => movieGenres.includes(g.toLowerCase()));
+
+		if (!someMatch) {
+			return false;
+		}
 	}
 
 	if (filters.countries && filters.countries.length > 0) {
-		ops.push({
-			type: 'countries',
-			countries: filters.countries.map((c) => c.toLowerCase()),
-		});
+		const movieCountries = movie.countries?.map((c) => c.name.toLowerCase()) || [];
+		const someMatch = filters.countries.some((c) => movieCountries.includes(c.toLowerCase()));
+
+		if (!someMatch) {
+			return false;
+		}
 	}
 
 	if (filters.isSeries && filters.isSeries.length > 0) {
-		ops.push({ type: 'isSeries', value: filters.isSeries[0] });
+		if (!movieMatchesIsSeriesFilter(filters.isSeries[0], movie.isSeries)) {
+			return false;
+		}
 	}
 
 	if (filters.ageRating && filters.ageRating.length > 0) {
-		ops.push({ type: 'ageRating', values: filters.ageRating });
+		if (!movieMatchesAgeRatingFilters(filters.ageRating, movie.ageRating)) {
+			return false;
+		}
 	}
 
 	if (filters.ratingFrom !== undefined || filters.ratingTo !== undefined) {
-		ops.push({
-			type: 'rating',
-			from: filters.ratingFrom,
-			to: filters.ratingTo,
-		});
+		const ratingItem = getPrimaryRating(movie.rating, ratingProvider);
+		const ratingValue = ratingItem?.value ?? 0;
+
+		if (filters.ratingFrom !== undefined && ratingValue < filters.ratingFrom) {
+			return false;
+		}
+
+		if (filters.ratingTo !== undefined && ratingValue > filters.ratingTo) {
+			return false;
+		}
 	}
 
 	if (filters.yearFrom !== undefined || filters.yearTo !== undefined) {
-		ops.push({
-			type: 'year',
-			from: filters.yearFrom,
-			to: filters.yearTo,
-		});
-	}
+		const y = movie.year ?? 0;
 
-	return ops;
-};
-
-const movieMatchesLocalFilterOp = (
-	movie: Movie,
-	op: LocalFilterOp,
-	ratingProvider: RatingProvider,
-): boolean => {
-	switch (op.type) {
-		case 'query': {
-			const mName = movie.name?.toLowerCase() || '';
-			const altName = movie.alternativeName?.toLowerCase() || '';
-
-			return mName.includes(op.q) || altName.includes(op.q);
+		if (filters.yearFrom !== undefined && y < filters.yearFrom) {
+			return false;
 		}
 
-		case 'genres': {
-			const movieGenres = movie.genres?.map((g) => g.name.toLowerCase()) || [];
-
-			return op.genres.some((g) => movieGenres.includes(g));
-		}
-
-		case 'countries': {
-			const movieCountries = movie.countries?.map((c) => c.name.toLowerCase()) || [];
-
-			return op.countries.some((c) => movieCountries.includes(c));
-		}
-
-		case 'isSeries': {
-			return movieMatchesIsSeriesFilter(op.value, movie.isSeries);
-		}
-
-		case 'ageRating': {
-			return movieMatchesAgeRatingFilters(op.values, movie.ageRating);
-		}
-
-		case 'rating': {
-			const ratingItem = getPrimaryRating(movie.rating, ratingProvider);
-			const ratingValue = ratingItem?.value ?? 0;
-
-			if (op.from !== undefined && ratingValue < op.from) {
-				return false;
-			}
-
-			if (op.to !== undefined && ratingValue > op.to) {
-				return false;
-			}
-
-			return true;
-		}
-
-		case 'year': {
-			const y = movie.year ?? 0;
-
-			if (op.from !== undefined && y < op.from) {
-				return false;
-			}
-
-			if (op.to !== undefined && y > op.to) {
-				return false;
-			}
-
-			return true;
-		}
-
-		default: {
-			return op;
+		if (filters.yearTo !== undefined && y > filters.yearTo) {
+			return false;
 		}
 	}
+
+	return true;
 };
 
 const applyLocalFilters = (
@@ -147,15 +94,7 @@ const applyLocalFilters = (
 	filters: FavoritesFilters,
 	ratingProvider: ReturnType<typeof useMoviesFilters>['ratingProvider'],
 ): Array<Movie> => {
-	const ops = buildLocalFilterOps(filters);
-
-	if (ops.length === 0) {
-		return movies;
-	}
-
-	return movies.filter((movie) =>
-		ops.every((op) => movieMatchesLocalFilterOp(movie, op, ratingProvider)),
-	);
+	return movies.filter((movie) => movieMatchesFilters(movie, filters, ratingProvider));
 };
 
 const FavoritesPage = () => {
@@ -164,11 +103,8 @@ const FavoritesPage = () => {
 	const { favorites } = useFavorites();
 	const { filters, ratingProvider, sortBy, sortOrder } = useMoviesFilters();
 
-	const processedFavorites = useMemo(() => {
-		const filtered = applyLocalFilters(favorites, filters, ratingProvider);
-
-		return sortMovies(filtered, sortBy, sortOrder, ratingProvider);
-	}, [favorites, filters, ratingProvider, sortBy, sortOrder]);
+	const filtered = applyLocalFilters(favorites, filters, ratingProvider);
+	const processedFavorites = sortMovies(filtered, sortBy, sortOrder, ratingProvider);
 
 	if (!favorites.length) {
 		return (

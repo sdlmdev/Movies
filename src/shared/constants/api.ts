@@ -23,6 +23,7 @@ export const KINOPOISK_DEV_URL = 'https://kinopoisk.dev';
 export const MAX_COMPARE_MOVIES = 2;
 
 export const DEFAULT_RATING_PROVIDER = 'kp';
+export const RATING_PROVIDERS = ['kp', 'imdb', 'tmdb', 'filmCritics'] as const;
 export const EXCLUDED_RATING_PROVIDERS = ['await'] as const;
 
 export const QUERY_KEYS = {
@@ -79,8 +80,4 @@ export const API_FIELDS = {
 
 export const API_QUERY_PREFIXES = {
 	RATING: 'rating.',
-} as const;
-
-export const API_QUERY_DELIMITERS = {
-	RANGE: '-',
 } as const;

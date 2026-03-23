@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
 import { SimpleGrid } from '@vkontakte/vkui';
 import { Virtuoso } from 'react-virtuoso';
+import { DEFAULT_RATING_PROVIDER } from '@shared/constants/api';
+import { GRID_CONFIG, UI_CHARS } from '@shared/constants/ui';
 import { useGridColumns } from '@shared/hooks';
 import type { Movie, RatingProvider } from '../../model/types';
 import { MovieCard } from '../MovieCard/MovieCard';
@@ -40,12 +42,14 @@ export const MovieVirtualGrid = ({
 				data={rows}
 				endReached={endReached}
 				overscan={1200}
-				computeItemKey={(_, row) => `${row[0]?.id ?? 0}-${ratingProvider ?? 'kp'}`}
-				itemContent={(_, row) => (
+				computeItemKey={(_, row: Array<Movie>) =>
+					`${row[0]?.id ?? 0}${UI_CHARS.DASH}${ratingProvider ?? DEFAULT_RATING_PROVIDER}`
+				}
+				itemContent={(_, row: Array<Movie>) => (
 					<SimpleGrid
 						columns={safeColumns}
-						gap={16}
-						style={{ paddingBottom: 16, justifyItems: 'center' }}
+						gap={GRID_CONFIG.GAP}
+						style={{ paddingBottom: GRID_CONFIG.GAP, justifyItems: 'center' }}
 					>
 						{row.map((movie) => (
 							<MovieCard
