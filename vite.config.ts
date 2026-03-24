@@ -6,9 +6,10 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '');
 	const isGhPages = env.VITE_APP_GH_PAGES === 'true';
+	const base = isGhPages ? '/Movies/' : '/';
 
 	return {
-		base: isGhPages ? '/Movies/' : '/',
+		base,
 		plugins: [
 			react({
 				babel: {
@@ -16,8 +17,9 @@ export default defineConfig(({ mode }) => {
 				},
 			}),
 			VitePWA({
+				base,
 				registerType: 'autoUpdate',
-				includeAssets: ['favicon.ico', 'icon.svg'],
+				includeAssets: ['favicon.ico', 'icon.svg', 'apple-touch-icon.png', 'mask-icon.svg'],
 				manifest: {
 					name: 'Movies',
 					short_name: 'Movies',
@@ -33,6 +35,9 @@ export default defineConfig(({ mode }) => {
 							purpose: 'any maskable',
 						},
 					],
+				},
+				workbox: {
+					globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest}'],
 				},
 			}),
 		],
